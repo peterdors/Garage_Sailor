@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div>
+      Enter your location:
+      <input id="start" type="textbox" placeholder="Enter a start point">
+      <input id="end" type="textbox" placeholder="Enter an end point">
+      <input type="button" value="Geocode" onclick="calculateRoute()">
+    </div>
+    
+    <div id="map"></div>
+  </body>
+
+  <script src="script.js"></script>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=[ENTER YOUR API KEY HERE]&callback=initMap"
+  async defer></script>
+    
+</html>
