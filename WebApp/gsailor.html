@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+
+        <h1>Garage Sailor</h1>
+
+        <div class="content">
+
+            <form id="add-sale-form">
+              <input type = "text" name = "Address" placeholder = "Address">
+              <input type = "text" name = "Email" placeholder = "Email">
+              <input type = "text" name = "Name" placeholder = "Name">
+              <button>Add Sale</button>
+            </form>
+
+            <ul id="garage-sales"></ul>
+
+        </div>
+
+      <script>
+        var config = {
+          apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
+          authDomain: "garage-sailor-5b177.firebaseapp.com",
+          databaseURL: "https://garage-sailor-5b177.firebaseio.com",
+          projectId: "garage-sailor-5b177",
+          storageBucket: "garage-sailor-5b177.appspot.com",
+          messagingSenderId: "53970225751",
+          appId: "1:53970225751:web:f495df6b08d1c76e8df112",
+          measurementId: "G-LF18WB35BV"
+        };
+        firebase.initializeApp(config);
+        firebase.analytics();
+        const db = firebase.firestore();
+      </script>
+
+        <script src="app.js"></script>
+    </body>
+</html>
