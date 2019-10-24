@@ -5,6 +5,10 @@
     <meta name="viewport" content="initial-scale=1.0">
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js%22%3E"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js%22%3E"></script>
   </head>
   <body>
     <div>
@@ -30,6 +34,24 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
 &callback=initMap"
   async defer></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
+    authDomain: "garage-sailor-5b177.firebaseapp.com",
+    databaseURL: "https://garage-sailor-5b177.firebaseio.com/",
+    projectId: "garage-sailor-5b177",
+    storageBucket: "garage-sailor-5b177.appspot.com",
+    messagingSenderId: "53970225751",
+    appId: "1:53970225751:web:f495df6b08d1c76e8df112",
+    measurementId: "G-LF18WB35BV"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+  const db = firebase.firestore();
+</script>
 
     
 </html>

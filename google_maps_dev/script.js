@@ -1,16 +1,3 @@
-/*
-
-var map;
-  function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-	// Center at UCF lat-long coordinates.  
-      center: {lat: 28.602343, lng: -81.200006},
-      zoom: 15
-    });
-  }
-
-*/
-
 // Globals (for now, lul)
 // =====================
 
@@ -43,7 +30,6 @@ for (var i = 0; i < places.length; i++)
 
 // Methods
 // =======
-
 function initMap() 
 {
 	geocoder = new google.maps.Geocoder();
@@ -68,11 +54,7 @@ function calculateRoute()
 	// var start = document.getElementById("start").value;
 	// var end = document.getElementById("end").value;
 
-	// sleep(2.0);
-
 	getDistances();
-
-	// console.log(tspWaypoints);
 
 	if (g.traversal[0] == undefined)
 	{
@@ -160,7 +142,7 @@ function sleep(secondsDelay)
 	// Convert seconds to milliseconds.
 	var millisecondsToWait = secondsDelay * 1000;
 
-	while (new Date().getTime() < now + millisecondsToWait)
+	while (new Date().getTime() < (now + millisecondsToWait))
 	{
 		// loopdy loop.
 		// Do nothing, diddly dee daa.
@@ -202,13 +184,13 @@ function getDistances()
 	// Solve the problem brute forcefully. 
 	g.traveling_salesman_problem();
 
-	// Delay to allow the TSP to work. 
-	sleep(2.0);
-
 	if (g.traversal[0] == undefined)
 	{
 		return;
 	}
+
+	// Delay to allow the TSP to work. 
+	sleep(2.0);
 
 	tspWaypoints = buildTSPWaypoints(g.traversal, places);
 
@@ -236,8 +218,6 @@ function getDistances()
 			document.getElementById("distances-list").appendChild(node);     
 		}
 	}
-
-
 }
 
 function getDistance(places, start, destination)
@@ -268,29 +248,13 @@ function getDistance(places, start, destination)
 	    	// Distance gives a text value back. 
 	    	var distance = response.rows[0].elements[0].distance.text;
 
-	    	// var text = "Distance from " + places[start] + " and " + 
-	    	// 			places[destination] + " is " + distance;
-
 	    	// Extract the floating point value from the 'distance' string 
 	    	var d = parseFloat(distance)
-	    	// var d = parseInt(distance)
 
 	    	// Put the distance value in its corresponding cell in the matrix. 
 	    	matrix[start][destination] = d;
 	    	matrix[destination][start] = d;
-
-	    	// Create a <li> node
-			// var node = document.createElement("LI"); 
-
-			// // Create a text node          
-			// var textnode = document.createTextNode(text); 
-
-			// // Append the text to <li>        
-			// node.appendChild(textnode); 
-
-			// // Append <li> to <ul> with id="distances-list"                   
-			// document.getElementById("distances-list").appendChild(node);     
-	    }
+		}
 	});
 }
 
