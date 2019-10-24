@@ -8,18 +8,28 @@
   </head>
   <body>
     <div>
-      Enter your location:
-      <input id="start" type="textbox" placeholder="Enter a start point">
-      <input id="end" type="textbox" placeholder="Enter an end point">
-      <input type="button" value="Geocode" onclick="calculateRoute()">
+      Enter your location or press the <b>Calculate Route</b> button twice for a quick TSP:
+      <input id="start" type="textbox" value="Oviedo, FL" placeholder="Enter a start point">
+      <input id="end" type="textbox" value="Orlando, FL" placeholder="Enter an end point">
+      <input type="button" value="Calculate Route" onclick="calculateRoute()">
     </div>
     
     <div id="map"></div>
+
+    <div id="distances">
+      Press the <b>Get Distances</b> button twice for TSP!
+      <input type="button" value="Get Distances" onclick="getDistances()">
+      <ol id="distances-list">
+        <!-- The TSP data will go here. -->
+      </ol>
+    </div>
+
   </body>
-
-  <script src="script.js"></script>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=[ENTER YOUR API KEY HERE]&callback=initMap"
+  <script src="graphs.js"></script>  
+  <script src="script.js"></script>  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
+&callback=initMap"
   async defer></script>
+
     
 </html>
