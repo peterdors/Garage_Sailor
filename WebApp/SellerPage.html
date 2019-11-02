@@ -18,15 +18,44 @@
 
         <h2>Give us a time and place for your sale.</h2>
         <h2 id="focus" contenteditable="true"></h2>
-        <!-- <div>
-            <button id="Seller" href="SellerPage.html" class="button">Seller </button>
-            <button id="Sailor" href="SailorPage.html" class="button">Sailor </button>
-        </div> -->
+
+        <form action="/action_page.php">
+            Address:<br>
+            <input type="text" name="address"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <form>
+                Date:
+                <input type="date" name="date">
+                <input type="submit">
+            </form>
+
+            <h3>What you will be selling:</h3>
+
+        <form>
+            <input type="checkbox" name="category1" value="Electronics"> Electronics<br>
+            <input type="checkbox" name="category2" value="Furniture"> Furniture<br>
+            <input type="checkbox" name="category3" value="Art"> Art<br>
+            <input type="checkbox" name="category4" value="Clothing/Shoes"> Clothing or Shoes<br>
+            <input type="checkbox" name="category5" value="Books"> Books<br>
+            <input type="checkbox" name="category6" value="Bicycles"> Bicycles<br>
+            <input type="checkbox" name="category7" value="Jewelry"> Jewelry<br>
+            <input type="checkbox" name="category8" value="Toys/Games"> Toys and Games<br>
+            <input type="checkbox" name="category9" value="Other"> Other<br><br>
+        </form>
+
 
         <form>
             Tell us about your garage sale.
             <textarea name="Text1" cols="40" rows="5"></textarea>
         </form>
+
+        
+        <h2>Submit Button</h2>
+
+        <input type="button" onclick="alert('Hello World!')" value="Set Sail!">
+
 
         <script src="js/main.js"></script>
     </body>
