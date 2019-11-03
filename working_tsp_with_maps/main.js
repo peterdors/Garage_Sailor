@@ -4,7 +4,7 @@
 // Globals
 // =====================
 var geocoder;
-var var tsp, map;
+var tsp, map;
 var directionsService, directionsRenderer; 
 
 var places = [	"Oviedo, FL", "Orlando, FL", "Tampa, FL", "Cocoa Beach, FL", 
