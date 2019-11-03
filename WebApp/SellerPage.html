@@ -9,6 +9,13 @@
         <link rel="stylesheet" href="css/style.css">
         <title>SellerPage</title>
     </head>
+
+    <style>
+        #map-canvas{
+            width: 400px;
+            height: 400px;
+        }
+    </style>
     <body>
     
         <h1>
@@ -24,7 +31,8 @@
 
         <form action="/action_page.php">
             Address:<br>
-            <input type="text" name="address"><br><br>
+            <input size="40" type="text" id="address" style="margin-top: 5%;"><br><br>
+            <div id="map-canvas"></div>
             <input type="submit" value="Submit">
         </form>
 
@@ -64,8 +72,28 @@
             };
         </script>
 
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
+            &callback=initMap&libraries=places"
+            async defer>
+        </script>
 
-        <script src="js/main.js"></script>
+        <script>
+            function initMap()
+            {
+                var map = new google.maps.Map(document.getElementById('map-canvas'), {
+                    center: {
+                        lat: 12.72,
+                        lng: 35.36
+                    },
+                    zoom: 15
+                });
+
+                var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
+                google.maps.event.addListener(searchBox, 'places_changed', function() {
+                    var places = searchBox.getPlaces();
+                })
+            }
+        </script>
     </body>
 </html>
     
