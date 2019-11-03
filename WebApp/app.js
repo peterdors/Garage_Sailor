@@ -15,13 +15,15 @@ function renderSale(doc)
 
     li.setAttribute('data-id', doc.id);
     Address.textContent = doc.data().Address;
-    Email.textContent = doc.data().Email;
-    Name.textContent = doc.data().Name;
+    Description.textContent = doc.data().Description;
+    Electronics.nodeValue = doc.data().Electronics;
+    var temp = doc.data().Electronics;
+    //document.querySelector('.messageCheckbox').checked;
     Cross.textContent = 'x';
 
     li.appendChild(Address);
-    li.appendChild(Email);
-    li.appendChild(Name);
+    li.appendChild(Description);
+    li.appendChild(Electronics);
     li.appendChild(Cross);
 
     cafeList.appendChild(li);
@@ -46,12 +48,13 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
     db.collection('Sellers').add({
         Address: form.Address.value,
-        Email: form.Email.value,
-        Name: form.Name.value
+        Description: form.Description.value,
+        // Create a collection of categories with booleans.
+        Electronics: form.Electronics.value
     });
     form.Address.value = '';
-    form.Email.value = '';
-    form.Name.value = '';
+    form.Description.value = '';
+    form.Electronics.value = '';
 });
 
 // Real-Time Listener 
