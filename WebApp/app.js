@@ -9,8 +9,8 @@ function renderSale(doc)
 {
     let li = document.createElement('li');
     let Address = document.createElement('span');
-    let Email = document.createElement('span');
-    let Name = document.createElement('span');
+    let Description = document.createElement('span');
+    let Electronics = document.createElement('span');
     let Cross = document.createElement('div');
 
     li.setAttribute('data-id', doc.id);
