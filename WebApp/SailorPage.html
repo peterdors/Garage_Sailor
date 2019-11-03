@@ -50,7 +50,13 @@
 
         <h2>Submit Button</h2>
 
-        <input type="button" onclick="alert('Hello World!')" value="Set Sail!">
+        <button id="button" class="float-left submit-button">Set Sail!</button>
+
+        <script type="text/javascript">
+            document.getElementById("button").onclick = function () {
+                location.href = "SailorTerminal.html";
+            };
+        </script>
 
         <script src="js/main.js"></script>
     </body>
