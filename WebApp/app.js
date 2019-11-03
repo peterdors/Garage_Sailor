@@ -1,9 +1,10 @@
 // TODO: store checkbox as boolean instead of string.
+// Another test
 
 const cafeList = document.querySelector('#garage-sales');
 const form = document.querySelector('#add-sale-form');
 
-// create element and render cafe
+// create element and render sale listing
 function renderSale(doc)
 {
     let li = document.createElement('li');
