@@ -1,3 +1,6 @@
+// TODO: store checkbox as boolean instead of string.
+
+
 const cafeList = document.querySelector('#garage-sales');
 const form = document.querySelector('#add-sale-form');
 
