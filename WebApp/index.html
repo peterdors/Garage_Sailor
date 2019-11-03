@@ -18,9 +18,19 @@
         <h2>AHOY!</h2>
         <h2 id="focus" contenteditable="true"></h2>
         <div>
-            <button href="SellerPage.html" class="button">Seller Button</button>
-            <button href="SailorPage.html" class="button">Sailor Button</button>
+            <button id="sellerbutton" href="SellerPage.html" class="button">Seller Button</button>
+            <button id="sailorbutton" href="SailorPage.html" class="button">Sailor Button</button>
         </div>
+
+        <script type="text/javascript">
+            document.getElementById("sellerbutton").onclick = function () {
+                location.href = "SellerPage.html";
+            };
+            document.getElementById("sailorbutton").onclick = function () {
+                location.href = "SailorPage.html";
+            };
+        </script>
+
         <script src="js/main.js"></script>
     </body>
 </html>
