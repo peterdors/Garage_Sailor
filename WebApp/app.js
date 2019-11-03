@@ -1,4 +1,5 @@
 // TODO: store checkbox as boolean instead of string.
+// Test change
 
 
 const cafeList = document.querySelector('#garage-sales');
