@@ -20,9 +20,10 @@
         <!-- TODO:
         Instructions  -->
 
+        <form>
         <h2>Categories:</h2>
         <div class="row">    
-            <form>
+            
                 <div class="column">
                     <input type="checkbox" name="category1" value="Electronics"> Electronics<br>
                     <input type="checkbox" name="category2" value="Furniture"> Furniture<br>
@@ -38,10 +39,8 @@
                     <input type="checkbox" name="category8" value="Toys/Games"> Games<br>
                     <input type="checkbox" name="category9" value="Other"> Other<br>
                 </div>
-            </form>
         </div> 
-
-        
+     
         <h2>Give us a time and place for your sale.</h2>
         <h2 id="focus" contenteditable="true"></h2>
 
@@ -50,10 +49,8 @@
             <input size="40" type="text" id="address" style="margin-top: 5%;"><br><br>
             <div id="map-canvas"></div>
             <input type="submit" value="Submit">
-        </form>
 
-        <form>
-                Date:
+            Date:
                 <input type="date" min="2019-11-13" name="date">
                 <input type="submit">
         </form>
@@ -80,7 +77,7 @@
         </script>
 
         <script>
-                 var today = new Date();
+                var today = new Date();
                 var dd = today.getDate();
                 var mm = today.getMonth()+1; //January is 0!
                 var yyyy = today.getFullYear();
@@ -90,7 +87,6 @@
                 if(mm<10){
                     mm='0'+mm
                 } 
-
                 today = yyyy+'-'+mm+'-'+dd;
                 document.getElementById("datefield").setAttribute("min", today);
         </script>
