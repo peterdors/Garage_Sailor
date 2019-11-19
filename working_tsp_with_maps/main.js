@@ -7,9 +7,9 @@ var geocoder;
 var tsp, map;
 var directionsService, directionsRenderer; 
 
-var places = [	"Oviedo, FL", "Orlando, FL", "Tampa, FL", "Cocoa Beach, FL", 
+var places = [	"Oviedo, FL", "Tampa, FL", "Cocoa Beach, FL", 
 				"Windermere, FL", "Naples, FL", "Boca Raton, FL", 
-				"Lake Mary, FL", "Sanford, FL", "Daytona Beach, FL" ];
+				"Lake Mary, FL", "Daytona Beach, FL", "Jupiter, FL"];
 
 var places0 = ["Oviedo, FL", "Sanford, FL", "Cocoa Beach, FL", "Orlando, FL"];
 
@@ -36,6 +36,38 @@ function initMap()
 
 	tsp = new TSP(places);
 }
+
+// work in progress
+// =============================================================================
+const getGeocode = address =>
+{
+	return new Promise((resolve, reject) => geocoder.geocode(
+		{address: address},
+
+		response =>
+		{
+			resolve(response[0].geometry.location);
+		}
+	));
+}
+
+async function addressToLatLng(addresses)
+{
+	var url = "https://www.google.com/maps/dir/";
+
+	// The length of the tsp.traversal array holds the accessible indices in the 
+	// corresponding addresses array. 
+	for (var i = 0; i < tsp.traversal.length; i++)
+	{
+		var val = await getGeocode(addresses[tsp.traversal[i]]);
+
+		url += val.toUrlValue();
+		url += "/";
+	}
+
+	return url;
+}
+// =============================================================================
 
 function getPlaces(places)
 {
@@ -105,46 +137,13 @@ function calculateRoute(tsp, waypoints)
 	
 }
 
-function sleep(secondsDelay)
-{
-	var now = new Date().getTime();
-
-	// Convert seconds to milliseconds.
-	var millisecondsToWait = secondsDelay * 1000;
-
-	while (new Date().getTime() < (now + millisecondsToWait))
-	{
-		// loopdy loop.
-		// Do nothing, diddly dee daa.
-		// I'm retarded.
-	}
-}
-
-function startLoadingScreen() 
-{
-	console.log("Starting loading screen.");
-	var overlayElem = document.getElementById('overlay').style;	
-
-	if (overlayElem)
-	{
-		console.log("Overlay exists");
-
-  	 	overlayElem.display = 'block';
-	}
-}
-
 async function endLoadingScreen() 
 {
 	console.log("Ending loading screen.");
 	
-	var overlayElem = document.getElementById('overlay').style; 
-	
-	if (overlayElem)
-	{
-		console.log("Overlay exists");
-
-  	 	overlayElem.display = 'none';
-	}
+	return new Promise(resolve => {
+		document.getElementById("overlay").style.display = "none";
+	});
 }
 
 async function main()
@@ -168,4 +167,12 @@ async function main()
 	end = new Date().getTime();
 
 	console.log("Finished calculating route in " + parseFloat((end - start) / 1000) + " seconds");
+
+	var url  = await addressToLatLng(places);
+
+	console.log(url);
+
+	document.getElementById("myUrl").href = url;
+
+	await endLoadingScreen();
 }
