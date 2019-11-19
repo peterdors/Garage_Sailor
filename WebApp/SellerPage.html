@@ -10,12 +10,6 @@
         <title>SellerPage</title>
     </head>
 
-    <style>
-        #map-canvas{
-            width: 400px;
-            height: 400px;
-        }
-    </style>
     <body>
     
         <h1>
@@ -86,23 +80,7 @@
         </script>
 
         <script>
-            function initMap()
-            {
-                var map = new google.maps.Map(document.getElementById('map-canvas'), {
-                    center: {
-                        lat: 12.72,
-                        lng: 35.36
-                    },
-                    zoom: 15
-                });
-
-                var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
-                google.maps.event.addListener(searchBox, 'places_changed', function() {
-                    var places = searchBox.getPlaces();
-                })
-            }
-
-                var today = new Date();
+                 var today = new Date();
                 var dd = today.getDate();
                 var mm = today.getMonth()+1; //January is 0!
                 var yyyy = today.getFullYear();
