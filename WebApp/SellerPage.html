@@ -29,7 +29,7 @@
         <h2>Give us a time and place for your sale.</h2>
         <h2 id="focus" contenteditable="true"></h2>
 
-        <form action="/action_page.php">
+        <form>
             Address:<br>
             <input size="40" type="text" id="address" style="margin-top: 5%;"><br><br>
             <div id="map-canvas"></div>
@@ -38,9 +38,9 @@
 
         <form>
                 Date:
-                <input type="date" name="date">
+                <input type="date" min="2019-11-13" name="date">
                 <input type="submit">
-            </form>
+        </form>
 
         <h3>What you will be selling:</h3>
 
@@ -57,12 +57,12 @@
         </form>
 
 
-        <form>
+        <!-- <form>
             Tell us about your garage sale.
             <textarea name="Text1" cols="40" rows="5"></textarea>
         </form>
 
-        <h2>Submit Button</h2>
+        <h2>Submit Button</h2> -->
 
         <button id="button" class="float-left submit-button">Ready to Sell!</button>
 
@@ -93,6 +93,20 @@
                     var places = searchBox.getPlaces();
                 })
             }
+
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                if(dd<10){
+                    dd='0'+dd
+                } 
+                if(mm<10){
+                    mm='0'+mm
+                } 
+
+                today = yyyy+'-'+mm+'-'+dd;
+                document.getElementById("datefield").setAttribute("min", today);
         </script>
     </body>
 </html>
