@@ -37,3 +37,18 @@ h2 {
 .button:hover {
     background-color: rgb(43, 73, 209);
 }
+
+/* Create three equal columns that floats next to each other */
+.column {
+    column-width: 33.33%;
+    padding: 10px;
+    display: inline-block;
+    text-align: left;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
