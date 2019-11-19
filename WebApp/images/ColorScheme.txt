@@ -1,0 +1,6 @@
+#E891BB dark pink
+#FFCBE3 light pink
+#CAF0FF very light blue
+#78C4E6 light blue
+#507FA5 dark blue
+#0E3B54 very dark blue
