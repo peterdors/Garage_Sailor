@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie-edge" />
@@ -20,38 +23,39 @@
         <!-- TODO:
         Instructions  -->
 
-        <form>
+        <form id="add-sale-form">
             <h2>Categories:</h2>
             <div class="row">    
             
                 <div class="column">
-                    <input type="checkbox" name="category1" value="Electronics"> Electronics<br>
-                    <input type="checkbox" name="category2" value="Furniture"> Furniture<br>
-                    <input type="checkbox" name="category3" value="Art"> Art<br>
+                        <input type="checkbox" name="electronics" id="electronics" value="Electronics"> Electronics<br>
+                        <input type="checkbox" name="furniture" id="furniture" value="Furniture"> Furniture<br>
+                        <input type="checkbox" name="art" id="art" value="Art"> Art<br>
                 </div>
                 <div class="column">
-                    <input type="checkbox" name="category4" value="Clothing/Shoes"> Clothes<br>
-                    <input type="checkbox" name="category5" value="Books"> Books<br>
-                    <input type="checkbox" name="category6" value="Bicycles"> Bicycles<br>
+                        <input type="checkbox" name="clothing" id="clothing" value="Clothing/Shoes"> Clothing or Shoes<br>
+                        <input type="checkbox" name="books" id="books" value="Books"> Books<br>
+                        <input type="checkbox" name="bicycles" id="bicycles" value="Bicycles"> Bicycles<br>
                 </div>
                 <div class="column">
-                    <input type="checkbox" name="category7" value="Jewelry"> Jewelry<br>
-                    <input type="checkbox" name="category8" value="Toys/Games"> Games<br>
-                    <input type="checkbox" name="category9" value="Other"> Other<br>
+                        <input type="checkbox" name="jewelry" id="jewelry" value="Jewelry"> Jewelry<br>
+                        <input type="checkbox" name="toys" id="toys" value="Toys/Games"> Toys and Games<br>
+                        <input type="checkbox" name="other" id="other" value="Other"> Other<br>
                 </div>
              </div> 
      
             <h2>Give us a time and place for your sale.</h2>
             <h2 id="focus" contenteditable="true"></h2>
 
-                Address:<br>
-                <input size="40" type="text" id="address" style="margin-top: 5%;"><br><br>
-                <div id="map-canvas"></div>
-                <input type="submit" value="Submit">
+                Address:
+                <input size="40" type="text" name="address" id="address" style="margin-top: 5%;" placeholder = ""><br><br>
 
-                Date:
-                    <input type="date" min="2019-11-13" name="date">
-                    <input type="submit">
+                Date:<br>
+                    <input type="date" name="date" id="date" min="2019-11-13" name="date"><br><br>
+                
+            <button type="submit" id="SellerB" class="float-left submit-button">Ready to Sell!</button>
+
+                
         </form>
 
 
@@ -62,17 +66,19 @@
 
         <h2>Submit Button</h2> -->
 
-        <button id="button" class="float-left submit-button">Ready to Sell!</button>
-
-        <script type="text/javascript">
-            document.getElementById("button").onclick = function () {
-                location.href = "SellerTerminal.html";
-            };
-        </script>
-
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
             &callback=initMap&libraries=places"
             async defer>
+        </script>
+
+        <script>
+            function initMap()
+            {
+                var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
+                google.maps.event.addListener(searchBox, 'places_changed', function() {
+                    var places = searchBox.getPlaces();
+                })
+            }
         </script>
 
         <script>
@@ -89,6 +95,25 @@
                 today = yyyy+'-'+mm+'-'+dd;
                 document.getElementById("datefield").setAttribute("min", today);
         </script>
+
+        <script>
+            var config = {
+            apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
+            authDomain: "garage-sailor-5b177.firebaseapp.com",
+            databaseURL: "https://garage-sailor-5b177.firebaseio.com",
+            projectId: "garage-sailor-5b177",
+            storageBucket: "garage-sailor-5b177.appspot.com",
+            messagingSenderId: "53970225751",
+            appId: "1:53970225751:web:f495df6b08d1c76e8df112",
+            measurementId: "G-LF18WB35BV"
+            };
+            firebase.initializeApp(config);
+            firebase.analytics();
+            const db = firebase.firestore();
+        </script>
+
+        <script src= "app.js"></script>
+
     </body>
 </html>
     
