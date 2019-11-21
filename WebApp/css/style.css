@@ -50,12 +50,13 @@ h2 {
 .catbox {
     background-color: rgb(51, 160, 136);
     border-radius: 25px;
+    padding: 10px;
 }
 
 .bigbox {
     background-color: rgb(100, 100, 136);
     /* position: relative; */
-    
+    padding: 30px;
     border-radius: 25px;
 }
 
