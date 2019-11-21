@@ -47,13 +47,16 @@ h2 {
     color: #78C4E6;
   }
 
-.box {
+.catbox {
     background-color: rgb(51, 160, 136);
+    border-radius: 25px;
 }
 
 .bigbox {
     background-color: rgb(100, 100, 136);
     /* position: relative; */
+    
+    border-radius: 25px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
