@@ -46,6 +46,20 @@ h2 {
     text-align: left;
     color: #78C4E6;
   }
+
+.box {
+    background-color: rgb(51, 160, 136);
+}
+
+.bigbox {
+    background-color: rgb(100, 100, 136);
+    /* position: relative; */
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: black;
+    opacity: 1; /* Firefox */
+}
   
   /* Clear floats after the columns */
   .row:after {
