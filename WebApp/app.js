@@ -103,20 +103,10 @@ if (sale)
         let salesDistances = [];
         let startAddress = document.getElementById('address').value; 
 
-        // TODO
-        let startLatLng = {lat: 50, lng:50};
-
-        function dist(start, curr)
-        {
-            return Math.pow(start.lat - curr.lat,2) + Math.pow(start.lng - curr.lng,2);
-        }
-
-
         for (var i=0; i<sales.length; i++)
         {
-            // TODO get latlng
-            var curr = {lat: 50+i, lng:50+i};
-            var distFromStart = dist(startLatLng, curr)
+            // TODO get distance
+            var distFromStart = 0;
             salesDistances.push({address: sales[i], dist: distFromStart});
         }
 
@@ -138,7 +128,7 @@ if (sale)
         {
             resSales.push(salesDistances[i].address);
         }
-        ResSales.push(startAddress);
+        resSales.push(startAddress);
         // Array for tsp
         console.log(resSales);
         // prevent empty strings for date and address, or no boxes checked
