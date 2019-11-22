@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+    	<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie-edge" />
@@ -16,7 +20,7 @@
 
         <div class="bigbox"><br><br><br>
             <div class="catbox">
-                <form>
+                <form id="search-sale-form">
                     <label class="categories" for="row">Categories:</label>
                     <br>
 
@@ -41,7 +45,7 @@
                 
                     </div>
             </div>
-                    <input type="text" class="support" value="address" name="address" onfocus="(this.value='')" onfocusout="(this.placeholder='address')" required><br>
+                    <input type="text" id='address' class="support" value="address" name="address" onfocus="(this.value='')" onfocusout="(this.placeholder='address')" required><br>
 
                     <input type="text" id="date" class="support" value="date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='date')";><br>
                     
@@ -72,6 +76,23 @@
                 document.getElementById("date").setAttribute("min", today);
         </script>
 
+        <script>
+            var config = {
+            apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
+            authDomain: "garage-sailor-5b177.firebaseapp.com",
+            databaseURL: "https://garage-sailor-5b177.firebaseio.com",
+            projectId: "garage-sailor-5b177",
+            storageBucket: "garage-sailor-5b177.appspot.com",
+            messagingSenderId: "53970225751",
+            appId: "1:53970225751:web:f495df6b08d1c76e8df112",
+            measurementId: "G-LF18WB35BV"
+            };
+            firebase.initializeApp(config);
+            firebase.analytics();
+            const db = firebase.firestore();
+        </script>
+
+        <script src= "app.js"></script>
         <!-- <script src="js/main.js"></script> -->
     </body>
 </html>

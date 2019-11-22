@@ -1,8 +1,8 @@
 // const saleList = document.querySelector('#garage-sales');
 const form = document.querySelector('#add-sale-form');
 const sale = document.querySelector('#search-sale-form');
-
 // Saving Data
+
 if (form)
 {
     form.addEventListener('submit', async (e) => 
@@ -52,7 +52,8 @@ if (sale)
     {
         e.preventDefault();
         var gsale = sale.elements;
-        let sales = new Set([]);
+
+        let sales = new Set();
         var len = sale.elements.length - 1;
         var element;
         var date;
@@ -62,14 +63,19 @@ if (sale)
         // need to fix input time as well with the date
         // need to check for duplicates
 
-        date = gsale[1];
+        // date = gsale[1];
+        date = document.getElementById('date');
+        date.type = 'date';
+        var dateval = date.valueAsDate;
+        date.type = 'text';
 
         for (var i = 0; i < len; i++)
         {
-            element = gsale[i]
+            element = gsale[i];
+
             if (element.type == "checkbox" && element.checked === true)
-            {
-                await db.collection('Sellers').where(element.id, '==', true).where(date.id, '==', date.valueAsDate).get()
+            {   
+                await db.collection('Sellers').where(element.value.toLowerCase(), '==', true).where(date.id, '==', dateval).get()
                 .then(snapshot => {
                     if (snapshot.empty) {
                         console.log("No matching documents");
@@ -91,7 +97,50 @@ if (sale)
                 console.log(sales);
             }
         }
+        sales = Array.from(sales);
+        // TODO check if empty
+        
+        let salesDistances = [];
+        let startAddress = document.getElementById('address').value; 
 
+        // TODO
+        let startLatLng = {lat: 50, lng:50};
+
+        function dist(start, curr)
+        {
+            return Math.pow(start.lat - curr.lat,2) + Math.pow(start.lng - curr.lng,2);
+        }
+
+
+        for (var i=0; i<sales.length; i++)
+        {
+            // TODO get latlng
+            var curr = {lat: 50+i, lng:50+i};
+            var distFromStart = dist(startLatLng, curr)
+            salesDistances.push({address: sales[i], dist: distFromStart});
+        }
+
+
+        function compare(a,b) {
+            let comparison=0;
+
+            if(a.dist>b.dist) comparison=1;
+            else if (b.dist>a.dist) comparison=-1;
+
+            return comparison;
+        }
+        
+        salesDistances.sort(compare);
+        
+        resSales = [];
+        resSales.push(startAddress);
+        for (var i=0; i<Math.min(8, salesDistances.length); i++)
+        {
+            resSales.push(salesDistances[i].address);
+        }
+        ResSales.push(startAddress);
+        // Array for tsp
+        console.log(resSales);
         // prevent empty strings for date and address, or no boxes checked
         // check for match date and categories.
     
