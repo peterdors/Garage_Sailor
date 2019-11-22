@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie-edge" />
@@ -16,33 +19,30 @@
 
         <div class="bigbox"><br><br><br>
             <div class="catbox">
-                <form>
+                <form id="search-sale-form">
                     <label for="row" text-align= "left" >Categories:</label>
 
                     <div class="row">  
-                        <div class="column">
-                            <input type="checkbox" name="category1" value="Electronics"> Electronics<br>
-                            <input type="checkbox" name="category2" value="Furniture"> Furniture<br>
-                            <input type="checkbox" name="category3" value="Art"> Art<br>
-                        </div>
-
-                        <div class="column">
-                            <input type="checkbox" name="category4" value="Clothing/Shoes"> Clothes<br>
-                            <input type="checkbox" name="category5" value="Books"> Books<br>
-                            <input type="checkbox" name="category6" value="Bicycles"> Bicycles<br>
-                        </div>
-
-                        <div class="column">
-                            <input type="checkbox" name="category7" value="Jewelry"> Jewelry<br>
-                            <input type="checkbox" name="category8" value="Toys/Games"> Games<br>
-                            <input type="checkbox" name="category9" value="Other"> Other<br>
-                        </div>
-                
-                    </div>
+                            <div class="column">
+                                    <input type="checkbox" name="electronics" id="electronics" value="Electronics"> Electronics<br>
+                                    <input type="checkbox" name="furniture" id="furniture" value="Furniture"> Furniture<br>
+                                    <input type="checkbox" name="art" id="art" value="Art"> Art<br>
+                            </div>
+                            <div class="column">
+                                    <input type="checkbox" name="clothing" id="clothing" value="Clothing/Shoes"> Clothing or Shoes<br>
+                                    <input type="checkbox" name="books" id="books" value="Books"> Books<br>
+                                    <input type="checkbox" name="bicycles" id="bicycles" value="Bicycles"> Bicycles<br>
+                            </div>
+                            <div class="column">
+                                    <input type="checkbox" name="jewelry" id="jewelry" value="Jewelry"> Jewelry<br>
+                                    <input type="checkbox" name="toys" id="toys" value="Toys/Games"> Toys and Games<br>
+                                    <input type="checkbox" name="other" id="other" value="Other"> Other<br>
+                            </div>
+                    </div> 
             </div>
-                    <input type="text" class="support" value="address" name="address" onfocus="(this.value='')" onfocusout="(this.placeholder='address')"><br>
+                    <input type="text" class="support" name="address" id="address" placeholder="" onfocus="(this.value='')" onfocusout="(this.placeholder='address')"><br>
 
-                    <input type="text" class="support" value="date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='date')"><br>
+                    <input type="date" class="support"  name="date" id="date"><br>
                     
                     <button id="button" class="float-left submit-button">Sail</button>
                 </form>
@@ -53,15 +53,55 @@
         
 
     
-
-
-        <script type="text/javascript">
-            document.getElementById("button").onclick = function () {
-                location.href = "SailorTerminal.html";
-            };
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
+            &callback=initMap&libraries=places"
+            async defer>
         </script>
 
-        <script src="js/main.js"></script>
+        <!-- <script>
+            function initMap()
+            {
+                var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
+                google.maps.event.addListener(searchBox, 'places_changed', function() {
+                    var places = searchBox.getPlaces();
+                })
+            }
+        </script> -->
+
+        <script>
+                var today = new Date();
+                var dd = today.getDate();
+                var mm = today.getMonth()+1; //January is 0!
+                var yyyy = today.getFullYear();
+                if(dd<10){
+                    dd='0'+dd
+                } 
+                if(mm<10){
+                    mm='0'+mm
+                } 
+                today = mm+'-'+dd+'-'+yyyy;
+                document.getElementById("datefield").setAttribute("min", today);
+        </script>
+
+        <script>
+            var config = {
+            apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
+            authDomain: "garage-sailor-5b177.firebaseapp.com",
+            databaseURL: "https://garage-sailor-5b177.firebaseio.com",
+            projectId: "garage-sailor-5b177",
+            storageBucket: "garage-sailor-5b177.appspot.com",
+            messagingSenderId: "53970225751",
+            appId: "1:53970225751:web:f495df6b08d1c76e8df112",
+            measurementId: "G-LF18WB35BV"
+            };
+            firebase.initializeApp(config);
+            firebase.analytics();
+            const db = firebase.firestore();
+        </script>
+        
+        <script src= "app.js"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o&callback=initMap"></script>
     </body>
 </html>
     
