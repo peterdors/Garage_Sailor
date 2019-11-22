@@ -1,9 +1,13 @@
 // const saleList = document.querySelector('#garage-sales');
 const form = document.querySelector('#add-sale-form');
 const sale = document.querySelector('#search-sale-form');
+<<<<<<< HEAD
 var geocoder;
 
+=======
+>>>>>>> 3beedf1c4aa3faac6c4db9a102e4687d3fffb399
 // Saving Data
+
 if (form)
 {
     form.addEventListener('submit', async (e) => 
@@ -54,8 +58,9 @@ if (sale)
     {
         e.preventDefault();
         var gsale = sale.elements;
-        let sales = new Set([]);
-        var len = sale.elements.length;
+
+        let sales = new Set();
+        var len = sale.elements.length - 1;
         var element;
         var date;
         var iterator;
@@ -65,15 +70,18 @@ if (sale)
         // need to fix input time as well with the date
         // need to check for duplicates
 
-        date = await gsale[10];
-        console.log(date.valueAsDate);
+        // date = gsale[1];
+        date = document.getElementById('date');
+        date.type = 'date';
+        var dateval = date.valueAsDate;
+        date.type = 'text';
 
         for (var i = 0; i < len; i++)
         {
             element = gsale[i];
             if (element.type == "checkbox" && element.checked === true)
-            {
-                await db.collection('Sellers').where(element.id, '==', true).where(date.id, '==', date.valueAsDate).get()
+            {   
+                await db.collection('Sellers').where(element.value.toLowerCase(), '==', true).where(date.id, '==', dateval).get()
                 .then(snapshot => {
                     if (snapshot.empty) {
                         console.log("No matching documents");
@@ -95,15 +103,40 @@ if (sale)
                 console.log(sales);
             }
         }
+        sales = Array.from(sales);
+        // TODO check if empty
+        
+        let salesDistances = [];
+        let startAddress = document.getElementById('address').value; 
 
-        iterator = sales.values();
+        for (var i=0; i<sales.length; i++)
+        {
+            // TODO get distance
+            var distFromStart = 0;
+            salesDistances.push({address: sales[i], dist: distFromStart});
+        }
 
-        var latLng = await getGeocode(iterator.next().value);
-        var lat = latLng.lat();
-        var lng = latLng.lng();
 
-        console.log("Latitude & Longitude: " + lat + ", " + lng);
+        function compare(a,b) {
+            let comparison=0;
 
+            if(a.dist>b.dist) comparison=1;
+            else if (b.dist>a.dist) comparison=-1;
+
+            return comparison;
+        }
+        
+        salesDistances.sort(compare);
+        
+        resSales = [];
+        resSales.push(startAddress);
+        for (var i=0; i<Math.min(8, salesDistances.length); i++)
+        {
+            resSales.push(salesDistances[i].address);
+        }
+        resSales.push(startAddress);
+        // Array for tsp
+        console.log(resSales);
         // prevent empty strings for date and address, or no boxes checked
         // check for match date and categories.
     
@@ -122,7 +155,7 @@ function initMap()
         destination: frick,
         travelMode: 'DRIVING'
     }
-    
+
     geocoder = new google.maps.Geocoder();
     var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
     google.maps.event.addListener(searchBox, 'places_changed', function() {
