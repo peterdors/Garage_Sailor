@@ -1,11 +1,8 @@
 // const saleList = document.querySelector('#garage-sales');
 const form = document.querySelector('#add-sale-form');
 const sale = document.querySelector('#search-sale-form');
-<<<<<<< HEAD
 var geocoder;
 
-=======
->>>>>>> 3beedf1c4aa3faac6c4db9a102e4687d3fffb399
 // Saving Data
 
 if (form)

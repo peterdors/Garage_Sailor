@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-<<<<<<< HEAD
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
-=======
-    	<script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
-
->>>>>>> 3beedf1c4aa3faac6c4db9a102e4687d3fffb399
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie-edge" />
@@ -27,12 +20,9 @@
         <div class="bigbox"><br><br><br>
             <div class="catbox">
                 <form id="search-sale-form">
-<<<<<<< HEAD
                     <label for="row" text-align= "left" >Categories:</label>
-=======
                     <label class="categories" for="row">Categories:</label>
                     <br>
->>>>>>> 3beedf1c4aa3faac6c4db9a102e4687d3fffb399
 
                     <div class="row">  
                             <div class="column">
@@ -52,24 +42,13 @@
                             </div>
                     </div> 
             </div>
-<<<<<<< HEAD
-                    <input type="text" class="support" name="address" id="address" placeholder="" onfocus="(this.value='')" onfocusout="(this.placeholder='address')"><br>
-
-                    <input type="date" class="support"  name="date" id="date"><br>
-=======
                     <input type="text" id='address' class="support" value="address" name="address" onfocus="(this.value='')" onfocusout="(this.placeholder='address')" required><br>
 
                     <input type="text" id="date" class="support" value="date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='date')";><br>
->>>>>>> 3beedf1c4aa3faac6c4db9a102e4687d3fffb399
                     
                     <button id="button" class="float-left submit-button">Sail</button>
                 </form>
         </div>
-
-
-<<<<<<< HEAD
-
-        
 
     
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
@@ -112,11 +91,6 @@
             messagingSenderId: "53970225751",
             appId: "1:53970225751:web:f495df6b08d1c76e8df112",
             measurementId: "G-LF18WB35BV"
-=======
-        <script type="text/javascript">
-            document.getElementById("button").onclick = function () {
-                location.href = "SailorTerminal.html";
->>>>>>> 3beedf1c4aa3faac6c4db9a102e4687d3fffb399
             };
             firebase.initializeApp(config);
             firebase.analytics();
@@ -125,9 +99,7 @@
         
         <script src= "app.js"></script>
 
-<<<<<<< HEAD
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o&callback=initMap"></script>
-=======
         <script>
                 var today = new Date();
                 var dd = today.getDate();
@@ -144,25 +116,8 @@
                 document.getElementById("date").setAttribute("min", today);
         </script>
 
-        <script>
-            var config = {
-            apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
-            authDomain: "garage-sailor-5b177.firebaseapp.com",
-            databaseURL: "https://garage-sailor-5b177.firebaseio.com",
-            projectId: "garage-sailor-5b177",
-            storageBucket: "garage-sailor-5b177.appspot.com",
-            messagingSenderId: "53970225751",
-            appId: "1:53970225751:web:f495df6b08d1c76e8df112",
-            measurementId: "G-LF18WB35BV"
-            };
-            firebase.initializeApp(config);
-            firebase.analytics();
-            const db = firebase.firestore();
-        </script>
-
         <script src= "app.js"></script>
         <!-- <script src="js/main.js"></script> -->
->>>>>>> 3beedf1c4aa3faac6c4db9a102e4687d3fffb399
     </body>
 </html>
     
