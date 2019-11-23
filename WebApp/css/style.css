@@ -82,6 +82,8 @@ h2 {
 
 input[type="checkbox"] {
     visibility: hidden;
+    width: 0px;
+    padding: 0px;
 }
 
 label {
@@ -144,12 +146,13 @@ input[type="checkbox"]:focus + label::before {
 }
 
 .support2 {
-    margin-bottom: 100px;
+    margin-bottom: 50px;
     align-self: baseline;
     font-size: x-large;
 }
 
 .categories {
+    margin-left: 13.5px;
     font-size: x-large;
     align-content: flex-start;
 }
