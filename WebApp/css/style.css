@@ -4,7 +4,17 @@
     padding: 0;
 }
 
+img {
+    width: 100%;
+    height: auto;
+}
+
 body {
+    background-image: url("../../graphics/backgrounds/current/sailor empty.png");
+    background-size: initial;
+    background-repeat: no-repeat;
+    background-position: right top;
+
     font-family: 'Quicksand', sans-serif;
     display: flex;
     flex-direction: column;
@@ -47,17 +57,21 @@ h2 {
 }
 
 .submit-button {
-    background-color: #E891BB;
+    background-color: #FFCBE3;
     border: none;
-    color: white;
+    color: #0e3b54;
     padding: 15px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-family: 'Quicksand', sans-serif;
+    border-style: solid;
+    border-width: 3.5px;
+    border-color: #507fa5;
+    font-size: x-large;
     margin: 4px 2px;
     cursor: pointer;
-    border-radius: 4px;
+     border-radius: 15px; 
 }
 
 .button-holder { 
@@ -70,20 +84,12 @@ h2 {
     padding: 10px;
     display: inline-block;
     text-align: left;
-    color: #78C4E6;
-  }
-
-.catbox {
-    background-color: rgb(250, 250, 250);
-    border-radius: 25px;
-    padding: 10px;
-    margin-bottom: 20px;
+    color: #507fa5;
 }
 
 input[type="checkbox"] {
     visibility: hidden;
     width: 0px;
-    padding: 0px;
 }
 
 label {
@@ -92,10 +98,11 @@ label {
 
 input[type="checkbox"] + label:before {
     background: #CAF0FF;
-    border: 1px solid #333;
+    /* border: 1px solid #333; */
     content: "\00a0";
     display: inline-block;
     font: 16px/1em sans-serif;
+    color: #507fa5;
     height: 16px;
     margin: 0 .25em 0 0;
     padding: 0;
@@ -118,13 +125,27 @@ input[type="checkbox"]:focus + label::before {
       outline: rgb(59, 153, 252) auto 5px;
 }
 
+.catbox {
+    border-width: 3.5px;
+    border-style: solid;
+    border-color: #507fa5;
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
 .bigbox {
-    background-color: #507FA5;
+    background-color: #CAF0FF;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #507fa5;
     /* position: relative; */
     padding: 30px;
-    border-radius: 25px;
+    border-radius: 50px;
     display: grid;
     margin: 4%;
+    margin-top: 150px; 
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -153,6 +174,21 @@ input[type="checkbox"]:focus + label::before {
 
 .categories {
     margin-left: 13.5px;
+    /* color: #507fa5; */
+    color: #0e3b54;
     font-size: x-large;
     align-content: flex-start;
+    
 }
+
+
+
+
+/* colors: 
+
+            Light blue      #78C4E6;
+            Dark blue       #507fa5; 
+            Darkest blue    #0e3b54;
+            
+            
+            */
