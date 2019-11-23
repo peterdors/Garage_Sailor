@@ -80,9 +80,6 @@ h2 {
     margin-bottom: 20px;
 }
 
-input[type="checkbox"] {
-    visibility: hidden;
-}
 label {
     cursor: pointer;
 }
