@@ -8,7 +8,7 @@ body {
     font-family: 'Quicksand', sans-serif;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     /* justify-content: center;
     text-align: center; */
     height: 100vh;
@@ -17,11 +17,19 @@ body {
 
 h1 {
     margin-bottom: 3rem;
+    display: contents;
+    justify-items: center;
+    text-align: center;
 }
 
 h2 {
     margin-bottom: 0.5rem;
     opacity: 0.6;
+}
+
+.sailor {
+    display: grid;
+    align-items: center;
 }
 
 .button {
@@ -38,6 +46,24 @@ h2 {
     background-color: rgb(43, 73, 209);
 }
 
+.submit-button {
+    background-color: #E891BB;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.button-holder { 
+    text-align: center;
+}
+
 /* Create three equal columns that floats next to each other */
 .column {
     column-width: 33.33%;
@@ -48,17 +74,54 @@ h2 {
   }
 
 .catbox {
-    background-color: rgb(51, 160, 136);
+    background-color: rgb(250, 250, 250);
     border-radius: 25px;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+input[type="checkbox"] {
+    visibility: hidden;
+}
+label {
+    cursor: pointer;
+}
+
+input[type="checkbox"] + label:before {
+    background: #CAF0FF;
+    border: 1px solid #333;
+    content: "\00a0";
+    display: inline-block;
+    font: 16px/1em sans-serif;
+    height: 16px;
+    margin: 0 .25em 0 0;
+    padding: 0;
+    vertical-align: top;
+    width: 16px;
+}
+
+input[type="checkbox"]:checked + label:before {
+    background: #CAF0FF;
+    color: #333;
+    content: "\2713";
+    text-align: center;
+}
+
+input[type="checkbox"]:checked + label:after {
+    font-weight: bold;
+}
+  
+input[type="checkbox"]:focus + label::before {
+      outline: rgb(59, 153, 252) auto 5px;
 }
 
 .bigbox {
-    background-color: rgb(100, 100, 136);
+    background-color: #507FA5;
     /* position: relative; */
     padding: 30px;
     border-radius: 25px;
+    display: grid;
+    margin: 4%;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -67,18 +130,25 @@ h2 {
 }
   
   /* Clear floats after the columns */
-  .row:after {
+.row:after {
     content: "";
     display: table;
     clear: both;
-  }
+}
 
 .support {
     margin-bottom: 10px;
     align-self: baseline;
+    font-size: x-large;
+}
+
+.support2 {
+    margin-bottom: 100px;
+    align-self: baseline;
+    font-size: x-large;
 }
 
 .categories {
-    font-size: medium;
-    float: left;
+    font-size: x-large;
+    align-content: flex-start;
 }
