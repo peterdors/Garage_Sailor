@@ -1,35 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta http-equiv="X-UA-Compatible" content="ie-edge" />
-        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="css/style.css">
-        <title>SailorTerminal</title>
-    </head>
-    <body>
+<html>
+  <head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body onload="main()">
     
-        <h1>
-            <span id="greeting"></span>
-            <span id="name" contenteditable="true">Ready to sail!</span>
-        </h1>
+    <div id="overlay" style="display:block;">
+      <div id="text">Loading...</div>
+    </div>
+    
+    <div id="map"></div>
 
-        <h2>Here is your route, Sailor.</h2>
-        <h2 id="focus" contenteditable="true"></h2>
+    <div style="margin-top: 1%; margin-left: 1%">
+      <a id="myUrl">Lets Go!</a>
+    </div>
+      
 
+  </body>
 
-        <h2>Want to sell or sail again?</h2>
-
-        <button id="button" class="float-left submit-button">To the Next Voyage!</button>
-
-        <script type="text/javascript">
-            document.getElementById("button").onclick = function () {
-                location.href = "index.html";
-            };
-        </script>
-        <script src="js/main.js"></script>
-    </body>
+  <script src="graph.js"></script>  
+  <script src="tsp.js"></script>  
+  <script src="main.js"></script>  
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
+&callback=initMap"></script>
+    
 </html>
-    

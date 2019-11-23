@@ -1,10 +1,10 @@
 // const saleList = document.querySelector('#garage-sales');
-const form = document.querySelector('#add-sale-form');
-const sale = document.querySelector('#search-sale-form');
+var form = document.querySelector('#add-sale-form');
+var sale = document.querySelector('#search-sale-form');
 var geocoder;
+var resSales = [];
 
 // Saving Data
-
 if (form)
 {
     form.addEventListener('submit', async (e) => 
@@ -101,8 +101,9 @@ if (sale)
             }
         }
         sales = Array.from(sales);
+
         // TODO check if empty
-        
+
         let salesDistances = [];
         let startAddress = document.getElementById('address').value; 
 
@@ -113,8 +114,8 @@ if (sale)
             salesDistances.push({address: sales[i], dist: distFromStart});
         }
 
-
-        function compare(a,b) {
+        function compare(a,b) 
+        {
             let comparison=0;
 
             if(a.dist>b.dist) comparison=1;
@@ -124,68 +125,96 @@ if (sale)
         }
         
         salesDistances.sort(compare);
+
+        console.log(salesDistances);
+
+        var i = 0;
+
+        resSales[i] = startAddress;
+
+        var min = Math.min(8, salesDistances.length);
         
-        resSales = [];
-        resSales.push(startAddress);
-        for (var i=0; i<Math.min(8, salesDistances.length); i++)
-        {
-            resSales.push(salesDistances[i].address);
-        }
-        resSales.push(startAddress);
-        // Array for tsp
+        // console.log(min);
+
         console.log(resSales);
+
+        for (i=1; i < min + 1; i++)
+        {
+            resSales[i] = salesDistances[i-1].address;
+        }
+
+        console.log(resSales);
+
+        resSales[i] = startAddress;
+
+        // Array for tsp
+        // console.log(resSales);
+
+        // This method call allows for us to transfer the resSales values to the 
+        // javascript file used in TSP, BUT WE HAVE TO TURN OFF THE OPTION IN 
+        // CHROME FOR BLOCKING THIRD PARTY COOKIES TO DO THIS.
+        localStorage.setItem("resSalesStorage", JSON.stringify(resSales));
+
         // prevent empty strings for date and address, or no boxes checked
         // check for match date and categories.
-    
         location.href = "SailorTerminal.html";
     });
 }
 
 function initMap()
 {
-    let directionsService = new google.maps.DirectionsService();
-    let directionsRenderer = new google.maps.DirectionsRenderer();
-    directionsRenderer.setMap(map); // Existing map object displays directions
-    // Create route from existing points used for markers
-    const route = {
-        origin: dakota,
-        destination: frick,
-        travelMode: 'DRIVING'
-    }
+    // let directionsService = new google.maps.DirectionsService();
+    // let directionsRenderer = new google.maps.DirectionsRenderer();
+    // directionsRenderer.setMap(map); // Existing map object displays directions
+    // // Create route from existing points used for markers
+    // const route = {
+    //     origin: dakota,
+    //     destination: frick,
+    //     travelMode: 'DRIVING'
+    // }
 
-    geocoder = new google.maps.Geocoder();
+    // geocoder = new google.maps.Geocoder();
     var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
+
     google.maps.event.addListener(searchBox, 'places_changed', function() {
         var places = searchBox.getPlaces();
     });
 
-    directionsService.route(route,
-        function(response, status) { // anonymous function to capture directions
-          if (status !== 'OK') {
-            window.alert('Directions request failed due to ' + status);
-            return;
-          } else {
-            directionsRenderer.setDirections(response); // Add route to the map
-            var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
-            if (!directionsData) {
-              window.alert('Directions request failed');
-              return;
-            }
-            else {
-              document.getElementById('msg').innerHTML += " Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
-            }
-          }
-        });
+    // directionsService.route(route,
+    //     function(response, status) 
+    //     {   
+    //       // anonymous function to capture directions
+    //       if (status !== 'OK') 
+    //       {
+    //         window.alert('Directions request failed due to ' + status);
+    //         return;
+    //       } 
+    //       else 
+    //       {
+    //         directionsRenderer.setDirections(response); // Add route to the map
+    //         var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
+    //         if (!directionsData) 
+    //         {
+    //           window.alert('Directions request failed');
+    //           return;
+    //         }
+    //         else 
+    //         {
+    //           document.getElementById('msg').innerHTML += " Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
+    //         }
+    //       }
+
+    //     });
 }
 
-const getGeocode = address =>
-{
-    return new Promise((resolve, reject) => geocoder.geocode(
-        {address: address},
-        response =>
-        {
-            resolve(response[0].geometry.location);
-        }
-    ));
-}
+// const getGeocode = address =>
+// {
+//     return new Promise((resolve, reject) => geocoder.geocode(
+//         {address: address},
+//         response =>
+//         {
+//             resolve(response[0].geometry.location);
+//         }
+//     ));
+// }
 

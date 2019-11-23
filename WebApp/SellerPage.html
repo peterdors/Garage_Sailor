@@ -54,9 +54,7 @@
                 Date:<br>
                     <input type="date" name="date" id="date" min="2019-11-13" name="date"><br><br>
                 
-            <button type="submit" id="SellerB" class="float-left submit-button">Ready to Sell!</button>
-
-                
+            <button type="submit" id="SellerB" class="float-left submit-button">Ready to Sell!</button>   
         </form>
 
 
@@ -67,19 +65,20 @@
 
         <h2>Submit Button</h2> -->
 
+        <script src= "app.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
             &callback=initMap&libraries=places"
             async defer>
         </script>
 
         <script>
-            function initMap()
-            {
-                var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
-                google.maps.event.addListener(searchBox, 'places_changed', function() {
-                    var places = searchBox.getPlaces();
-                })
-            }
+            // function initMap()
+            // {
+            //     var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
+            //     google.maps.event.addListener(searchBox, 'places_changed', function() {
+            //         var places = searchBox.getPlaces();
+            //     })
+            // }
         </script>
 
         <script>
@@ -114,7 +113,6 @@
             const db = firebase.firestore();
         </script>
 
-        <script src= "app.js"></script>
 
     </body>
 </html>
