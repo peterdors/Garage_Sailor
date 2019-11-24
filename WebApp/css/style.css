@@ -4,10 +4,15 @@
     padding: 0;
 }
 
-img {
-    width: 100%;
-    height: auto;
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    margin-top: 50px;
 }
+
 
 body {
     background-image: url("../../graphics/backgrounds/current/sailor empty.png");
@@ -123,35 +128,38 @@ input[type="checkbox"]:checked + label:before {
       outline: rgb(59, 153, 252) auto 5px;
 } */
 
-.catbox {
-    border-width: 3.5px;
-    border-style: solid;
-    border-color: #507fa5;
-    background-color: white;
-    border-radius: 25px;
-    padding: 10px;
-    padding-bottom: 5px;
-    margin-bottom: 20px;
-}
-
 .bigbox {
     background-color: #CAF0FF;
     border-style: solid;
-    border-width: 5px;
-    border-color: #507fa5;
+    border-width: 5px; 
+    border-color: #507fa5; 
     /* position: relative; */
-    padding: 30px;
-    border-radius: 50px;
+    padding: 2%;
+    border-radius: 10%;
     display: grid;
-    margin-left: 10%;
-    margin-top: 150px; 
+    margin-left: 13.5%;
+    margin-top: 50px; 
 }
+
+
+.catbox {
+    border-width: 3.5px;
+    border-style: solid;
+    border-color: #507fa5; 
+    background-color: white;
+    border-radius: 25px;
+    padding: 10px;
+    padding-bottom: 8px;
+    margin-bottom: 25px;
+}
+
+
 
  ::placeholder { 
     /* border-style: solid;
     border-width: 5px;
     border-color: #507fa5;
-    padding: 80px 0px; */
+    padding: 80px 0px;  */
 
     color: #0e3b54;
     /* padding-left: 24.5px; */
@@ -167,7 +175,6 @@ input[type="checkbox"]:checked + label:before {
 .categories {
     margin-left: 13.5px;
     padding-bottom: 20px;
-    /* color: #507fa5; */
     color: #0e3b54;
     font-size: x-large;
     align-content: flex-start;
@@ -178,16 +185,18 @@ input[type="checkbox"]:checked + label:before {
     margin-bottom: 4px;
     align-self: baseline;
     font-size: x-large;
+    margin-top: 0%;
     margin-left: 14px;
     margin-right: 14px;
-    border: 3px solid #507fa5;
+    margin-bottom: 18px;
     padding: 3px 10px;
+    border: 3px solid #507fa5; 
     border-radius: 15px;
 }
 
 .Date {
     font-family: 'Quicksand', sans-serif;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     align-self: baseline;
     font-size: x-large;
     margin-left: 14px;
@@ -212,6 +221,7 @@ input[type="checkbox"]:checked + label:before {
     border-color: #507fa5;
     font-size: x-large;
     margin: 2px 1px;
+    margin-bottom: 5px;
     cursor: pointer;
     border-radius: 15px; 
 }

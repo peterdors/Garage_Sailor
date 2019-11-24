@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+
+
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
@@ -10,13 +12,13 @@
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
-        <title>SailorPage</title>
+        <title>Garage Sailor</title>
+        <link rel="shortcut icon" href="../graphics/logo/current/insignia.png">
     </head>
     <body>
-    
-        <!-- TODO:
-        Instructions  -->
-        <!-- <h1>Insert Sailor Picture Here</h1> -->
+
+
+        <img class="logo" src="../graphics/logo/current/logo.png"/>
 
 
         <div class="bigbox">
@@ -52,13 +54,13 @@
                                     <input type="checkbox" name="bicycles" id="bicycles" value="Bicycles">
                                     <label for="bicycles">Bicycles</label><br>
                                     <input type="checkbox" name="other" id="other" value="Other">
-                                    <label for="other">Other</label><br>
+                                    <label for="other">Other</label>
                             </div>
                     </div> 
             </div>
-                    <input type="text" id='address' class="Address" placeholder="Address" name="address" onfocus="(this.value='')" onfocusout="(this.placeholder='Address')" required><br>
+                    <input type="text" id='address' class="Address" placeholder="Address" name="address" onfocus="(this.value='')" onfocusout="(this.placeholder='Address')" required>
 
-                    <input type="text" id="date" class="Date" placeholder="Date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='Date')";><br>
+                    <input type="text" id="date" class="Date" placeholder="Date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='Date')" required>
                     
                     <div class='button-holder' id='button-holder'>
                         <button id="submit-button" class="submit-button">Sail</button>
