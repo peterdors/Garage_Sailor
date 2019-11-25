@@ -14,6 +14,19 @@ if (form)
         {
             return;
         }
+        let found = false;
+        await db.collection('Sellers').where('address', '==', form.address.value).where('date', '==', form.date.valueAsDate).get()
+                .then(snapshot => {
+                    if (! snapshot.empty) {
+                        found=true;
+                    }
+                });
+        if (found)
+        {
+            alert("Garage sale has already been added!");
+            return false;
+        }
+
         await db.collection('Sellers').add
         ({
             electronics: form.electronics.checked,
