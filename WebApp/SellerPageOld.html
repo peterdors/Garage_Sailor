@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-analytics.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.2.1/firebase-firestore.js"></script>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+        <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/style.css">
+        <title>SellerPage</title>
+    </head>
+
+    <body>
+    
+        <h1>
+            <span id="greeting"></span>
+            <span id="name">Welcome Seller!</span>
+        </h1>
+
+        <!-- TODO:
+        Instructions  -->
+
+        <form id="add-sale-form">
+            <h2>Categories:</h2>
+            <div class="row">    
+            
+                <div class="column">
+                        <input type="checkbox" name="electronics" id="electronics" value="Electronics"> <label for="electronics">Electronics</label><br>
+                        <input type="checkbox" name="furniture" id="furniture" value="Furniture"> <label for="furniture">Furniture<br>
+                        <input type="checkbox" name="art" id="art" value="Art"> 
+                        <label for="art">Art<br>
+                </div>
+                <div class="column">
+                        <input type="checkbox" name="clothing" id="clothing" value="Clothing/Shoes"> <label for="clothing">Clothing or Shoes<br>
+                        <input type="checkbox" name="books" id="books" value="Books"> <label for="books">Books<br>
+                        <input type="checkbox" name="bicycles" id="bicycles" value="Bicycles"> <label for="bicycles">Bicycles<br>
+                </div>
+                <div class="column">
+                        <input type="checkbox" name="jewelry" id="jewelry" value="Jewelry"> <label for="jewelry">Jewelry<br>
+                        <input type="checkbox" name="toys" id="toys" value="Toys/Games"> <label for="toys">Toys and Games<br>
+                        <input type="checkbox" name="other" id="other" value="Other"> <label for="other">Other<br>
+                </div>
+             </div> 
+     
+            <h2>Give us a time and place for your sale.</h2>
+            <h2 id="focus" contenteditable="true"></h2>
+
+                Address:<br>
+                <input size="40" type="text" name="address" id="address" style="margin-top: 5%;" placeholder = "" required><br><br>
+
+                Date:<br>
+                    <input type="date" name="date" id="date" min="2019-11-13" name="date"><br><br>
+                
+            <button type="submit" id="SellerB" class="float-left submit-button">Ready to Sell!</button>   
+        </form>
+
+
+        <!-- <form>
+            Tell us about your garage sale.
+            <textarea name="Text1" cols="40" rows="5"></textarea>
+        </form>
+
+        <h2>Submit Button</h2> -->
+
+        <script src= "app.js"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
+            &callback=initMap&libraries=places"
+            async defer>
+        </script>
+
+        <script>
+            // function initMap()
+            // {
+            //     var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
+            //     google.maps.event.addListener(searchBox, 'places_changed', function() {
+            //         var places = searchBox.getPlaces();
+            //     })
+            // }
+        </script>
+
+        <script>
+            var today = new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+            var yyyy = today.getFullYear();
+            if(dd<10){
+                dd='0'+dd
+            } 
+            if(mm<10){
+                mm='0'+mm
+            } 
+            today = yyyy+'-'+mm+'-'+dd;
+            console.log(today);
+            document.getElementById("date").setAttribute("min", today);
+        </script>
+
+        <script>
+            var config = {
+            apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
+            authDomain: "garage-sailor-5b177.firebaseapp.com",
+            databaseURL: "https://garage-sailor-5b177.firebaseio.com",
+            projectId: "garage-sailor-5b177",
+            storageBucket: "garage-sailor-5b177.appspot.com",
+            messagingSenderId: "53970225751",
+            appId: "1:53970225751:web:f495df6b08d1c76e8df112",
+            measurementId: "G-LF18WB35BV"
+            };
+            firebase.initializeApp(config);
+            firebase.analytics();
+            const db = firebase.firestore();
+        </script>
+
+
+    </body>
+</html>
+    
