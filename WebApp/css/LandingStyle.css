@@ -56,6 +56,7 @@ body {
     border: none;
     margin-right: 150px;
     background-color:transparent;
+    cursor: pointer;
 }
 
 .sell{
@@ -67,6 +68,7 @@ body {
     background-repeat: no-repeat;
     border: none;
     background-color:transparent;
+    cursor: pointer;
 }
 
 
