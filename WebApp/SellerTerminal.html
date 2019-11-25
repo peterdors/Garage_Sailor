@@ -7,28 +7,40 @@
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
-        <title>SailorTerminal</title>
+        <link rel="stylesheet" href="css/SellerFormStyle.css">
+        <title>Garage Sailor</title>
+        <link rel="shortcut icon" href="../graphics/logo/current/insignia (hq).png">
     </head>
     <body>
-    
-        <h1>
-            <span id="greeting"></span>
-            <span id="name" contenteditable="true">Ready to sail!</span>
-        </h1>
 
-        <h2>Here is your route, Sailor.</h2>
-        <h2 id="focus" contenteditable="true"></h2>
+        <a href="LandingPage.html">
+         <img class="insignia" src="../graphics/logo/current/insignia (hq).png"/>
+        </a>
+
+        <img class="logo" src="../graphics/logo/current/logo (hq).png"/>
+
+        <div class="bigbox">
+        
+            <h1>
+                <span id="greeting"></span>
+                <span id="name" contenteditable="true">Your garage sale has been posted!</span>
+            </h1>
+
+            <br>
+            <!-- <h2>Here is your route, Sailor.</h2>
+            <h2 id="focus" contenteditable="true"></h2> -->
 
 
-        <h2>Want to sell or sail again?</h2>
+            <!-- <h2>Want to sell or sail again?</h2> -->
 
-        <button id="button" class="float-left submit-button">To the Next Voyage!</button>
+            <button id="button" class="float-left submit-button">To Your Next Voyage!</button>
 
-        <script type="text/javascript">
-            document.getElementById("button").onclick = function () {
-                location.href = "index.html";
-            };
-        </script>
+            <script type="text/javascript">
+                document.getElementById("button").onclick = function () {
+                    location.href = "LandingPage.html";
+                };
+            </script>
+        </div>
     </body>
 </html>
     
