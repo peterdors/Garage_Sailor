@@ -15,8 +15,8 @@
 
 
 body {
-    background-image: url("../../graphics/backgrounds/current/sailor empty.png");
-    background-size: initial;
+    background-image: url("../../graphics/backgrounds/current/sailor empty (hq).png");
+    background-size: 1366px 768px;
     background-repeat: no-repeat;
     background-position: right top;
 
@@ -137,7 +137,8 @@ input[type="checkbox"]:checked + label:before {
     padding: 2%;
     border-radius: 10%;
     display: grid;
-    margin-left: 13.5%;
+    /* margin-left: 12.75%; */
+    margin-left: 65px;
     margin-top: 60px; 
 }
 
@@ -196,7 +197,7 @@ input[type="checkbox"]:checked + label:before {
 
 .Date {
     font-family: 'Quicksand', sans-serif;
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     align-self: baseline;
     font-size: x-large;
     margin-left: 14px;
