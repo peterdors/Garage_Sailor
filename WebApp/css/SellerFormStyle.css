@@ -13,6 +13,13 @@
     margin-top: 40px;
 }
 
+.insignia{
+    display: block;
+    width: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
 
 body {
     background-image: url("../../graphics/backgrounds/current/seller empty (hq).png");
