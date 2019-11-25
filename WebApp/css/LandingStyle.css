@@ -5,7 +5,7 @@
 } */
 
 body {
-    background-image: url("../../graphics/backgrounds/current/landing dark.png");
+    background-image: url("../../graphics/backgrounds/current/landing light.png");
     background-size: 1536px 1536px;
     background-repeat: no-repeat;
     background-position: center top;
@@ -31,20 +31,26 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 400px;
+    width: 500px;
     margin-top: 225px;
 }
+.heading {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    margin-top: 85px;
+}
 
-h1 {
+/* h1 {
     font-family: 'Lobster', cursive;
     color: #78C4E6;
     font-weight: 100;
-    line-height: 50px;
-}
+}*/
 
 
 .buttons{
-    margin-top: 170px;
+    margin-top: 80px;
     position: relative;
     /* top: 25%;  */
     margin-left: auto;
@@ -54,22 +60,22 @@ h1 {
 
 .sail{
     background-image: url("../../graphics/icons/current/sail button (hq).png");
-    background-size: 100px 150px;
+    background-size: 50px 75px;
     /* background: transparent; */
-    width: 100px;
-    height: 150px;
+    width: 50px;
+    height: 75px;
     background-repeat: no-repeat;
     border: none;
-    margin-right: 200px;
+    margin-right: 150px;
     background-color:transparent;
 }
 
 .sell{
     background-image: url("../../graphics/icons/current/sell button (hq).png");
-    background-size: 100px 130px;  
+    background-size: 50px 68px;
     /* background: transparent; */
-    width: 100px;
-    height: 130px;
+    width: 50px;
+    height: 68px;
     background-repeat: no-repeat;
     border: none;
     background-color:transparent;
