@@ -20,6 +20,13 @@ body {
     color: black;
 }
 
+.insignia{
+    display: block;
+    width: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
 .logo {
     display: block;
     margin-left: auto;
@@ -28,11 +35,11 @@ body {
     margin-top: 225px;
 }
 
-.insignia{
-    display: block;
-    width: 50px;
-    margin-left: 10px;
-    margin-top: 10px;
+h1 {
+    font-family: 'Lobster', cursive;
+    color: #78C4E6;
+    font-weight: 100;
+    line-height: 50px;
 }
 
 
@@ -40,7 +47,9 @@ body {
     margin-top: 170px;
     position: relative;
     /* top: 25%;  */
-    left: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    
 }
 
 .sail{
@@ -52,6 +61,7 @@ body {
     background-repeat: no-repeat;
     border: none;
     margin-right: 200px;
+    background-color:transparent;
 }
 
 .sell{
@@ -62,6 +72,7 @@ body {
     height: 130px;
     background-repeat: no-repeat;
     border: none;
+    background-color:transparent;
 }
 
 
