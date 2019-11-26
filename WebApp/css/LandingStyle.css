@@ -65,12 +65,14 @@ body {
 
 .sell{
     background-image: url("../../graphics/icons/current/sell button (hq).png");
-    background-size: 50px 68px;
+    background-size: 53px 68px;
     /* background: transparent; */
-    width: 50px;
-    height: 75px;
+    width: 53px;
+    height: 68px;
     background-repeat: no-repeat;
     border: none;
+
+    margin-top: 5px;
     background-color:transparent;
     cursor: pointer;
 }
