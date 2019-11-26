@@ -3,7 +3,38 @@ var form = document.querySelector('#add-sale-form');
 var sale = document.querySelector('#search-sale-form');
 var geocoder;
 var resSales = [];
+var distanceService; 
+var distFromStart;
 
+function initDistanceService()
+{
+    distanceService = new google.maps.DistanceMatrixService();
+}
+
+function get_distance(start, destination)
+    { 
+        return new Promise((resolve, reject) => distanceService.getDistanceMatrix(
+        {
+            // Get and place the user input origin and destination from the 
+            // website.
+            origins: [start],
+            destinations: [destination],
+            travelMode: google.maps.TravelMode.DRIVING,
+            unitSystem: google.maps.UnitSystem.IMPERIAL,
+            durationInTraffic: true,
+            avoidHighways: false,
+            avoidTolls: false
+        },
+
+        response => 
+        {
+            // console.log(response) // actually returns desired response
+            resolve(response.rows[0].elements[0].distance.text);
+            
+            var distance = response.rows[0].elements[0].distance.text;
+            distFromStart = parseFloat(distance);
+        }));
+    }
 // Saving Data
 if (form)
 {
@@ -21,7 +52,7 @@ if (form)
 
         await db.collection('Sellers').where('address', '==', form.address.value).where('date', '==', dateval).get()
                 .then(snapshot => {
-                    if (! snapshot.empty) {
+                    if (!snapshot.empty) {
                         found=true;
                     }
                 });
@@ -79,6 +110,7 @@ if (sale)
         var element;
         var date;
         var iterator;
+        var i = 0;
 
         // Add a check for blank address and date
         // have to make another check if date matches date given before throwing it into list
@@ -96,79 +128,86 @@ if (sale)
         for (var i = 0; i < len; i++)
         {
             element = gsale[i];
+            // console.log(element);
+
             if (element.type == "checkbox" && element.checked === true)
             {   
                 await db.collection('Sellers').where(element.value.toLowerCase(), '==', true).where('date', '==', dateval).get()
                 .then(snapshot => {
-                    if (snapshot.empty) {
+                    if (snapshot.empty) 
+                    {
                         console.log("No matching documents");
+
                         return;
                     }
-                    snapshot.forEach(doc => {
+                    snapshot.forEach(doc => 
+                    {
+                        console.log(doc.data().address);
                         sales.add(doc.data().address);
-                        console.log(doc.id, "=>", doc.data().date);
+                        // console.log(doc.id, "=>", doc.data().date);
                     });
                 })
-                .catch(err => {
-                    console.log("Error getting documents", err);
+                .catch(err => 
+                {
+                    // console.log("Error getting documents", err);
                 });
 
                 var arrlen = sales.size;
 
-                console.log("arrlen before =", arrlen);
+                // console.log("arrlen before =", arrlen);
 
-                console.log(sales);
+                // console.log(sales);
             }
         }
+
         sales = Array.from(sales);
+        // console.log(sales);
 
         // TODO check if empty
+        let salesDistances = new Array();
 
-        let salesDistances = [];
         let startAddress = document.getElementById('address').value; 
 
-        for (var i=0; i<sales.length; i++)
+        for (var i = 0; i < sales.length; i++)
         {
             // TODO get distance
-            var distFromStart = 0;
+            await get_distance(startAddress, sales[i]);
+            console.log(distFromStart);
             salesDistances.push({address: sales[i], dist: distFromStart});
         }
 
-        function compare(a,b) 
+        function compare(a, b) 
         {
-            let comparison=0;
+            let comparison = 0;
 
-            if(a.dist>b.dist) comparison=1;
-            else if (b.dist>a.dist) comparison=-1;
+            if (a.dist > b.dist) comparison = 1;
+            else if (b.dist > a.dist) comparison = -1;
 
             return comparison;
         }
         
         salesDistances.sort(compare);
 
-        console.log(salesDistances);
+        // console.log(salesDistances);
 
-        var i = 0;
-
-        resSales[i] = startAddress;
+        resSales[0] = startAddress;
 
         var min = Math.min(8, salesDistances.length);
         
         // console.log(min);
+        // console.log(resSales);
 
-        console.log(resSales);
-
-        for (i=1; i < min + 1; i++)
+        for (i = 1; i < min + 1; i++)
         {
             resSales[i] = salesDistances[i-1].address;
         }
 
-        console.log(resSales);
+        // console.log(resSales);
 
         resSales[i] = startAddress;
 
         // Array for tsp
-        // console.log(resSales);
+        console.log(resSales);
 
         // This method call allows for us to transfer the resSales values to the 
         // javascript file used in TSP, BUT WE HAVE TO TURN OFF THE OPTION IN 
@@ -181,60 +220,5 @@ if (sale)
     });
 }
 
-function initMap()
-{
-    // let directionsService = new google.maps.DirectionsService();
-    // let directionsRenderer = new google.maps.DirectionsRenderer();
-    // directionsRenderer.setMap(map); // Existing map object displays directions
-    // // Create route from existing points used for markers
-    // const route = {
-    //     origin: dakota,
-    //     destination: frick,
-    //     travelMode: 'DRIVING'
-    // }
 
-    // geocoder = new google.maps.Geocoder();
-    var searchBox = new google.maps.places.SearchBox(document.getElementById('address'));
-
-    google.maps.event.addListener(searchBox, 'places_changed', function() {
-        var places = searchBox.getPlaces();
-    });
-
-    // directionsService.route(route,
-    //     function(response, status) 
-    //     {   
-    //       // anonymous function to capture directions
-    //       if (status !== 'OK') 
-    //       {
-    //         window.alert('Directions request failed due to ' + status);
-    //         return;
-    //       } 
-    //       else 
-    //       {
-    //         directionsRenderer.setDirections(response); // Add route to the map
-    //         var directionsData = response.routes[0].legs[0]; // Get data about the mapped route
-    //         if (!directionsData) 
-    //         {
-    //           window.alert('Directions request failed');
-    //           return;
-    //         }
-    //         else 
-    //         {
-    //           document.getElementById('msg').innerHTML += " Driving distance is " + directionsData.distance.text + " (" + directionsData.duration.text + ").";
-    //         }
-    //       }
-
-    //     });
-}
-
-// const getGeocode = address =>
-// {
-//     return new Promise((resolve, reject) => geocoder.geocode(
-//         {address: address},
-//         response =>
-//         {
-//             resolve(response[0].geometry.location);
-//         }
-//     ));
-// }
 

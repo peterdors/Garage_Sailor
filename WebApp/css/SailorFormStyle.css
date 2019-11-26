@@ -12,6 +12,10 @@
     width: 400px;
     margin-top: 40px;
 }
+a{
+    margin-left: auto;
+    margin-right: auto;
+}
 
 .insignia{
     display: block;

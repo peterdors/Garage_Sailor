@@ -1,0 +1,85 @@
+/* Always set the map height explicitly to define the size of the div
+ * element that contains the map. */
+#map 
+{
+	/*height: 80%;
+  width: 80%;
+  position: absolute;*/
+
+  width: 600px;
+  height: 600px;
+  
+  /*position: absolute;*/
+  top:0;
+  bottom: 0;
+  left: auto;
+  right: auto;
+    
+  margin: auto;
+
+  border-radius: 50%;
+}
+
+#overlay 
+{
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text
+{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 50px;
+  color: white;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+}
+
+#sail_link
+{
+  text-align:center;
+  display:block;
+  margin: 1%;
+  margin-bottom: 5%;
+  width: 100%;
+}
+
+#sail-button 
+{
+    background-color: #FFCBE3;
+    border: none;
+    color: #0e3b54;
+    padding: 10px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #507fa5;
+    font-size: x-large;
+    margin: 2px 1px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-radius: 15px; 
+}
+
+/* Optional: Makes the sample page fill the window. */
+html, body 
+{
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+

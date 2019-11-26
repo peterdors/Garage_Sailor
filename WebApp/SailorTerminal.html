@@ -1,11 +1,20 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Simple Map</title>
-    <meta name="viewport" content="initial-scale=1.0">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie-edge" />
+    
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="../graphics/logo/current/insignia (hq).png">
+    <link rel="stylesheet" type="text/css" href="css/map_style.css">
+
+    <title>Garage Sailor</title>
+    
   </head>
+
   <body onload="main()">
     
     <div id="overlay" style="display:block;">
@@ -14,16 +23,15 @@
     
     <div id="map"></div>
 
-    <div style="margin-top: 1%; margin-left: 1%">
-      <a id="myUrl">Lets Go!</a>
+    <div id='sail_link'>
+      <button id="sail-button">
+        <a id="myUrl">Lets Sail!</a>
+      </button>
     </div>
-      
-
   </body>
-
-  <script src="graph.js"></script>  
-  <script src="tsp.js"></script>  
-  <script src="main.js"></script>  
+  <script src="js/graph.js"></script>  
+  <script src="js/tsp.js"></script>  
+  <script src="js/main.js"></script>  
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
 &callback=initMap"></script>
     

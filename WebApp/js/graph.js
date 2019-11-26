@@ -31,12 +31,12 @@ class Graph
 			{
 				// Inputs the distance in miles between the places[i] and 
 				// places[j] points. Puts that in the correspoding matrix cell
-				this.get_distance(places, i, j, this.ref_callback);
+				this.get_distance(places, i, j);
 			}
 		}
 	}
 
-	get_distance(places, start, destination, ref_callback)
+	get_distance(places, start, destination)
 	{ 
 		return new Promise((resolve, reject) => this.distanceService.getDistanceMatrix(
 		{
@@ -64,21 +64,4 @@ class Graph
         	this.matrix[destination][start] = d;
       	}));
 	}
-
-	// Deprecated. 
-	// ref_callback(response, status)
-	// {
-	// 	if (status !== google.maps.DistanceMatrixStatus.OK) 
-	//     {
-	//         console.log('Error:', status);
-	//     } 
-	//     else 
-	//     {
-	//     	// Distance gives a text value back. 
-	//     	var distance = response.rows[0].elements[0].distance.text;
-
-	//     	// Extract the floating point value from the 'distance' text 
-	//     	var d = parseFloat(distance);
-	// 	}
-	// }
 }
