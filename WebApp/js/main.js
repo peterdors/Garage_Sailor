@@ -7,11 +7,9 @@ var geocoder;
 var tsp, map;
 var directionsService, directionsRenderer; 
 
+// TODO: parse the localStorage without relying on third-party cookie methods 
+// such as JSON.parse() methods.
 var places = JSON.parse(localStorage.getItem("resSalesStorage"));
-
-// var places = [	"Oviedo, FL", "Tampa, FL", "Cocoa Beach, FL", 
-// 				"Windermere, FL", "Naples, FL", "Boca Raton, FL", 
-// 				"Lake Mary, FL", "Daytona Beach, FL", "Jupiter, FL"];
 
 // Methods
 // =======

@@ -38,12 +38,11 @@ body {
 }
 
 .buttons{
-    margin-top: 80px;
+    margin-top: 5%;
     position: relative;
     /* top: 25%;  */
     margin-left: auto;
     margin-right: auto;
-    
 }
 
 .sail{

@@ -7,11 +7,11 @@ var geocoder;
 var tsp, map;
 var directionsService, directionsRenderer; 
 
-var places = [	"Oviedo, FL", "Tampa, FL", "Cocoa Beach, FL", 
-				"Windermere, FL", "Naples, FL", "Boca Raton, FL", 
-				"Lake Mary, FL", "Daytona Beach, FL", "Jupiter, FL"];
+var places = resSales;
 
-var places0 = ["Oviedo, FL", "Sanford, FL", "Cocoa Beach, FL", "Orlando, FL"];
+// [	"Oviedo, FL", "Tampa, FL", "Cocoa Beach, FL", 
+// 				"Windermere, FL", "Naples, FL", "Boca Raton, FL", 
+// 				"Lake Mary, FL", "Daytona Beach, FL", "Jupiter, FL"];
 
 // Methods
 // =======
