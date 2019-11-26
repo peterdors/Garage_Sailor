@@ -15,7 +15,11 @@ if (form)
             return;
         }
         let found = false;
-        await db.collection('Sellers').where('address', '==', form.address.value).where('date', '==', form.date.valueAsDate).get()
+        date.type = 'date';
+        var dateval = form.date.valueAsDate;
+        date.type = 'text';
+
+        await db.collection('Sellers').where('address', '==', form.address.value).where('date', '==', dateval).get()
                 .then(snapshot => {
                     if (! snapshot.empty) {
                         found=true;
@@ -39,11 +43,12 @@ if (form)
             toys: form.toys.checked, 
             other: form.other.checked,
             address: form.address.value,
-            date: form.date.valueAsDate,
+            date: dateval,
         }).then(ref => 
         {
             console.log('Added document with ID: ', ref.id);
             console.log(form.date.value);
+            console.log(dateval);
         });
 
         form.electronics.checked = false;
@@ -84,14 +89,16 @@ if (sale)
         date = document.getElementById('date');
         date.type = 'date';
         var dateval = date.valueAsDate;
+        console.log(date.value);
+        console.log(dateval);
         date.type = 'text';
-
+        
         for (var i = 0; i < len; i++)
         {
             element = gsale[i];
             if (element.type == "checkbox" && element.checked === true)
             {   
-                await db.collection('Sellers').where(element.value.toLowerCase(), '==', true).where(date.id, '==', dateval).get()
+                await db.collection('Sellers').where(element.value.toLowerCase(), '==', true).where('date', '==', dateval).get()
                 .then(snapshot => {
                     if (snapshot.empty) {
                         console.log("No matching documents");
