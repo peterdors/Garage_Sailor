@@ -26,14 +26,16 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 500px;
+    max-width: 500px;
+    width: 80%;
     margin-top: 225px;
 }
 .heading {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 600px;
+    max-width: 600px;
+    width: 90%;
     margin-top: 85px;
 }
 
