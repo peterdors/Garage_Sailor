@@ -12,29 +12,30 @@ function initDistanceService()
 }
 
 function get_distance(start, destination)
-    { 
-        return new Promise((resolve, reject) => distanceService.getDistanceMatrix(
-        {
-            // Get and place the user input origin and destination from the 
-            // website.
-            origins: [start],
-            destinations: [destination],
-            travelMode: google.maps.TravelMode.DRIVING,
-            unitSystem: google.maps.UnitSystem.IMPERIAL,
-            durationInTraffic: true,
-            avoidHighways: false,
-            avoidTolls: false
-        },
+{ 
+    return new Promise((resolve, reject) => distanceService.getDistanceMatrix(
+    {
+        // Get and place the user input origin and destination from the 
+        // website.
+        origins: [start],
+        destinations: [destination],
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.IMPERIAL,
+        durationInTraffic: true,
+        avoidHighways: false,
+        avoidTolls: false
+    },
 
-        response => 
-        {
-            // console.log(response) // actually returns desired response
-            resolve(response.rows[0].elements[0].distance.text);
-            
-            var distance = response.rows[0].elements[0].distance.text;
-            distFromStart = parseFloat(distance);
-        }));
-    }
+    response => 
+    {
+        // console.log(response) // actually returns desired response
+        resolve(response.rows[0].elements[0].distance.text);
+        
+        var distance = response.rows[0].elements[0].distance.text;
+        distFromStart = parseFloat(distance);
+    }));
+}
+
 // Saving Data
 if (form)
 {
@@ -51,11 +52,11 @@ if (form)
         date.type = 'text';
 
         await db.collection('Sellers').where('address', '==', form.address.value).where('date', '==', dateval).get()
-                .then(snapshot => {
-                    if (!snapshot.empty) {
-                        found=true;
-                    }
-                });
+            .then(snapshot => {
+                if (!snapshot.empty) {
+                    found=true;
+                }
+            });
         if (found)
         {
             alert("Garage sale has already been added!");
@@ -96,7 +97,6 @@ if (form)
         location.href = "SellerTerminal.html";        
     });    
 }
-
 
 if (sale)
 {
@@ -167,6 +167,8 @@ if (sale)
         let salesDistances = new Array();
 
         let startAddress = document.getElementById('address').value; 
+
+        document.getElementById("overlay").style.display = "block";
 
         for (var i = 0; i < sales.length; i++)
         {
