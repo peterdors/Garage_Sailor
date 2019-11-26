@@ -1,0 +1,65 @@
+
+body {
+    background-image: url("../../graphics/backgrounds/current/landing light.png");
+    background-size: 1536px 1536px;
+    background-repeat: no-repeat;
+    background-position: center top;
+
+    font-family: 'Quicksand', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center; 
+    /* height: 100vh; */
+    color: black;
+}
+
+.insignia{
+    display: block;
+    width: 50px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.logo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    margin-top: 225px;
+}
+
+.heading {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+    padding-bottom: 5px;
+    margin-top: 85px;
+}
+
+
+.home{
+    width: 60px;
+    height: 75px;
+    border: none;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    
+    background-color:transparent;
+    cursor: pointer;
+}
+
+
+/* colors: 
+
+            Lightest blue   #CAF0FF;
+            Light blue      #78C4E6;
+            Dark blue       #507fa5; 
+            Darkest blue    #0e3b54;
+
+            Light pink      #CAF0FF;
+
+            */
