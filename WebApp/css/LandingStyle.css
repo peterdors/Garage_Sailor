@@ -79,6 +79,8 @@ body {
     cursor: pointer;
 }
 
+
+/* 
 .tooltip {
     position: relative;
     display: inline-block;
@@ -103,7 +105,7 @@ body {
 .button:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-}
+} */
 
 
 /* colors: 
