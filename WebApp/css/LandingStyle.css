@@ -36,11 +36,15 @@ body {
     margin-right: auto;
     max-width: 600px;
     width: 90%;
-    margin-top: 85px;
+    
+    margin-top: 7%;
+    margin-top: 70px;
+    margin-top: 60px;
 }
 
 .buttons{
     margin-top: 5%;
+    margin-top: 60px;
     position: relative;
     /* top: 25%;  */
     margin-left: auto;
@@ -97,7 +101,7 @@ body {
     padding: 5px 0;
     opacity: 0;
   
-    /* Position the tooltip */
+    /* Position the tooltip 
     position: absolute;
     z-index: 1;
  }
