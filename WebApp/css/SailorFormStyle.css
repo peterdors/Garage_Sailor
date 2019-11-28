@@ -239,6 +239,7 @@ input[type="checkbox"]:checked + label:before {
 }
 
 
+/* CSS Styling for Loading Screen Overlay */
 #overlay 
 {
   position: fixed;
@@ -259,7 +260,7 @@ input[type="checkbox"]:checked + label:before {
   position: absolute;
   top: 50%;
   left: 50%;
-  font-size: 50px;
+  font-size: 50px sans-serif;
   color: white;
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);

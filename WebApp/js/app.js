@@ -42,7 +42,8 @@ if (form)
     form.addEventListener('submit', async (e) => 
     {
         e.preventDefault();
-        if (form.address.value == '' || form.date.value == '')
+        var addr = form.address.value;
+        if (addr == '' || form.date.value == '')
         {
             return;
         }
@@ -50,10 +51,14 @@ if (form)
         date.type = 'date';
         var dateval = form.date.valueAsDate;
         date.type = 'text';
+        
+        var resAddr = addr.toUpperCase();
 
-        await db.collection('Sellers').where('address', '==', form.address.value).where('date', '==', dateval).get()
-            .then(snapshot => {
-                if (!snapshot.empty) {
+        await db.collection('Sellers').where('address', '==', resAddr).where('date', '==', dateval).get()
+            .then(snapshot => 
+            {
+                if (!snapshot.empty) 
+                {
                     found=true;
                 }
             });
@@ -74,7 +79,7 @@ if (form)
             jewelry: form.jewelry.checked,
             toys: form.toys.checked, 
             other: form.other.checked,
-            address: form.address.value,
+            address: resAddr,
             date: dateval,
         }).then(ref => 
         {
@@ -118,9 +123,18 @@ if (sale)
         // need to check for duplicates
 
         // date = gsale[1];
+        // TODO: Compare the date entered to today's date and if the date 
+        // entered is earlier than today's date we should catch this as an error. 
         date = document.getElementById('date');
         date.type = 'date';
         var dateval = date.valueAsDate;
+
+        // if (dateval < new Date.getDate())
+        // {
+        //     alert("Oh Noo! You input the wrong date!");
+        //     return; 
+        // }
+
         console.log(date.value);
         console.log(dateval);
         date.type = 'text';
