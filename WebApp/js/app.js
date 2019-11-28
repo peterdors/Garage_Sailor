@@ -125,19 +125,26 @@ if (sale)
         // date = gsale[1];
         // TODO: Compare the date entered to today's date and if the date 
         // entered is earlier than today's date we should catch this as an error. 
-        date = document.getElementById('date');
+        date = await document.getElementById('date');
         date.type = 'date';
         var dateval = date.valueAsDate;
 
-        // if (dateval < new Date.getDate())
+        var today = new Date();
+        var inp = new Date(dateval);
+
+        console.log(inp);
+        console.log(date.value);
+        console.log(dateval);
+
+        // if (inp < today)
         // {
-        //     alert("Oh Noo! You input the wrong date!");
+        //     alert("Please input a date greater than or equal to " + today);
         //     return; 
         // }
 
-        console.log(date.value);
-        console.log(dateval);
+        
         date.type = 'text';
+        console.log("Len elements" + len);
         
         for (var i = 0; i < len; i++)
         {
