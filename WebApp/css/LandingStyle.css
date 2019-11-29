@@ -1,6 +1,6 @@
 
 body {
-    background-image: url("../../graphics/backgrounds/current/landing light.png");
+    background-image: url("../graphics/backgrounds/current/landing light.png");
     background-size: 1536px 1536px;
     background-repeat: no-repeat;
     background-position: center top;
@@ -57,7 +57,7 @@ body {
 }
 
 .sail{
-    background-image: url("../../graphics/icons/current/sail button (hq).png");
+    background-image: url("../graphics/icons/current/sail button (hq).png");
     background-size: 50px 75px;
     /* background: transparent; */
     width: 50px;
@@ -70,7 +70,7 @@ body {
 }
 
 .sell{
-    background-image: url("../../graphics/icons/current/sell button (hq).png");
+    background-image: url("../graphics/icons/current/sell button (hq).png");
     background-size: 53px 70px;
     /* background: transparent; */
     width: 53px;
