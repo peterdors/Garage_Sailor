@@ -1,32 +1,114 @@
 
+.insignia{
+  display: block;
+  width: 50px;
+  margin-left: 18px;
+  margin-top: 18px;
+}
+
+body {
+  background-image: url("../../graphics/backgrounds/current/landing no sun.png");
+  background-size: 1536px 1536px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  
+}
+
+.mapwrap{
+  width: 650px;
+  height: 650px;
+  position: absolute;
+  margin: 425px 50%;
+  background-color: transparent;
+  z-index: 20;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  border-radius: 50%; 
+}
+.mapwrap:hover{
+  background-color: rgb(255, 203, 227, .5);
+  border-radius: 50%; 
+}
+
 
 /* .mapwrap{
-  height:600%;
+  position: relative;
+  width: 100%;
+  height: 100%;
 } */
 
+/* .maplink{
+  width: 650px;
+  height: 650px; 
+  color: black;
+  
+   margin-top: 105px; 
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 50%; 
+  z-index: 20; 
+  
+}  */
+
+/* #map:hover{
+  color: rgb(255, 203, 227);
+  color: rgb(255, 203, 227, .5);
+} */
 
 /* Always set the map height explicitly to define the size of the div
  * element that contains the map. */
 #map 
 {
 	/*height: 80%;
-  width: 80%;
-  position: absolute;*/
-  width: 100%;
-  max-width: 600px;
-  height: 600px;
-  
-  /*position: absolute;*/
-  top:0;
-  bottom: 0;
-  left: auto;
-  right: auto;
-  margin: auto;
+  width: 80%;*/
+  position: absolute;
+  /* width: 100%; */
+  width: 650px;
+  height: 650px;
+  transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+
+  margin: 425px 50%;
+  /* margin: auto; */
 
   border-radius: 50%;
+  z-index: 1;
 }
 
+
 #overlay 
+{
+  position: fixed;
+  /*display: none;*/
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(202, 240, 255);
+  background-color: rgb(202, 240, 255, .5);
+  /* opacity: .5; */
+  z-index: 2;
+  cursor: pointer;
+}
+
+#text
+{
+  position: absolute;
+  top: 356px;
+  left: 50%;
+  text-align: center;
+  font-family: 'Quicksand', sans-serif;
+  font-size: large;
+  /* opacity: 1; */
+  color: #507fa5;
+   transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%); 
+}
+
+
+/* #overlay 
 {
   position: fixed;
   display: none;
@@ -50,7 +132,7 @@
   color: white;
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
-}
+} */
 
 #sail_link
 {
