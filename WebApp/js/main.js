@@ -152,7 +152,7 @@ async function main()
 
 	if (tsp.matrix.length < 3)
 	{
-		alert("No routes found! Press OK to reload webpage.");
+		alert("No sales found. Try a different date or categories.");
 		location.href = "SailorPage.html";
 		return;
 	}
