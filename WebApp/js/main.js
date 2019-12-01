@@ -150,6 +150,13 @@ async function main()
 
 	console.log(places);
 
+	if (tsp.matrix.length < 3)
+	{
+		alert("No routes found! Press OK to reload webpage.");
+		location.href = "SailorPage.html";
+		return;
+	}
+
 	var start = new Date().getTime();
 	await tsp.traveling_salesman_problem();
 	var end = new Date().getTime();
