@@ -8,66 +8,66 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta http-equiv="X-UA-Compatible" content="ie-edge" />
         <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css?family=Courgette&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/SailorFormStyle.css">
         <title>Garage Sailor</title>
         <link rel="shortcut icon" href="graphics/logo/current/insignia (hq).png">
     </head>
+
+    <!-- calls the loading page after pressing the sail button -->
     <body onload="initDistanceService()">
+
+        <!-- loading page -->
         <div id="overlay" style="display:none;">
-            <!-- <div id="loadingbox"> -->
               <div id="text">Calculating Your Route...</div>
-            <!-- </div> -->
         </div>
 
+        <!-- Garage Sailor logo -->
         <a href="index.html">
             <img class="logo" src="graphics/logo/current/logo (hq).png"/>
         </a>
 
-        
+        <!-- sailor form -->
+        <div class="bigbox"> 
 
-
-        <div class="bigbox">
+            <!-- box for just the catagories -->
             <div class="catbox">
                 <form id="search-sale-form">
-                    <!-- <label for="row" text-align= "left" >Categories:</label> -->
                     <label class="categories" for="row">Categories:</label>
-                    <br>
-
                     <div class="row">  
-                            <div class="column" id="first-col">
-                                    <input type="checkbox" name="clothing" id="clothing" value="Clothing">
-                                    <label for="clothing">Apparel</label><br>    
-                                    <input type="checkbox" name="furniture" id="furniture" value="Furniture"> 
-                                    <label for="furniture">Furniture</label><br>
-                                    <input type="checkbox" name="electronics" id="electronics" value="Electronics">
-                                    <label for="electronics">Electronics</label><br>
-                                    
-                            </div>
-                            <div class="column">
-                                    <input type="checkbox" name="art" id="art" value="Art">
-                                    <label for="art">Art</label><br>
-                                    
-                                    <input type="checkbox" name="books" id="books" value="Books">
-                                    <label for="books">Books</label><br>
-                                    <input type="checkbox" name="jewelry" id="jewelry" value="Jewelry">
-                                    <label for="jewelry">Jewelry</label><br>
-                                    
-                            </div>
-                            <div class="column" id="last-col">
-                                    <input type="checkbox" name="toys" id="toys" value="Toys">
-                                    <label for="toys">Toys</label><br>
-                                    <input type="checkbox" name="bicycles" id="bicycles" value="Bicycles">
-                                    <label for="bicycles">Bicycles</label><br>
-                                    <input type="checkbox" name="other" id="other" value="Other">
-                                    <label for="other">Other</label>
-                            </div>
+                        <div class="column" id="first-col">
+                                <input type="checkbox" name="clothing" id="clothing" value="Clothing">
+                                <label for="clothing">Apparel</label><br>    
+                                <input type="checkbox" name="furniture" id="furniture" value="Furniture"> 
+                                <label for="furniture">Furniture</label><br>
+                                <input type="checkbox" name="electronics" id="electronics" value="Electronics">
+                                <label for="electronics">Electronics</label><br>
+                        </div>
+
+                        <div class="column">
+                                <input type="checkbox" name="art" id="art" value="Art">
+                                <label for="art">Art</label><br>
+                                <input type="checkbox" name="books" id="books" value="Books">
+                                <label for="books">Books</label><br>
+                                <input type="checkbox" name="jewelry" id="jewelry" value="Jewelry">
+                                <label for="jewelry">Jewelry</label><br> 
+                        </div>
+                        
+                        <div class="column" id="last-col">
+                                <input type="checkbox" name="toys" id="toys" value="Toys">
+                                <label for="toys">Toys</label><br>
+                                <input type="checkbox" name="bicycles" id="bicycles" value="Bicycles">
+                                <label for="bicycles">Bicycles</label><br>
+                                <input type="checkbox" name="other" id="other" value="Other">
+                                <label for="other">Other</label>
+                        </div>
                     </div> 
             </div>
+                    <!-- Address and Date fields -->
                     <input type="text" id='address' class="Address" placeholder="Address" name="address" onfocus="(this.value='')" onfocusout="(this.placeholder='Address')" required>
 
                     <input type="text" id="date" class="Date" placeholder="Date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='Date')" required>
                     
+                    <!-- sail button -->
                     <div class='button-holder' id='button-holder'>
                         <button id="submit-button" class="submit-button">Sail</button>
                     </div>
@@ -81,39 +81,8 @@
             &callback=initSearchBox&libraries=places"
             async defer>
         </script>
-        <script>
-                var today = new Date();
-                var dd = today.getDate();
-                var mm = today.getMonth()+1; //January is 0!
-                var yyyy = today.getFullYear();
-                if(dd<10){
-                    dd='0'+dd
-                } 
-                if(mm<10){
-                    mm='0'+mm
-                } 
-                today = mm+'-'+dd+'-'+yyyy;
-                
-                document.getElementById("date").setAttribute("min", today);
-        </script>
 
-        <script>
-            var config = {
-            apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
-            authDomain: "garage-sailor-5b177.firebaseapp.com",
-            databaseURL: "https://garage-sailor-5b177.firebaseio.com",
-            projectId: "garage-sailor-5b177",
-            storageBucket: "garage-sailor-5b177.appspot.com",
-            messagingSenderId: "53970225751",
-            appId: "1:53970225751:web:f495df6b08d1c76e8df112",
-            measurementId: "G-LF18WB35BV"
-            };
-            firebase.initializeApp(config);
-            firebase.analytics();
-            const db = firebase.firestore();
-        </script>
-        
-        <!-- <script src= "app.js"></script> -->
+        <!-- script for blocking out past dates -->
         <script>
                 var today = new Date();
                 var dd = today.getDate();
@@ -129,7 +98,23 @@
                 today = yyyy+'-'+mm+'-'+dd;
                 document.getElementById("date").setAttribute("min", today);
         </script>
-        <!-- <script src="js/main.js"></script> -->
+
+        <!-- database configuration -->
+        <script>
+            var config = {
+            apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
+            authDomain: "garage-sailor-5b177.firebaseapp.com",
+            databaseURL: "https://garage-sailor-5b177.firebaseio.com",
+            projectId: "garage-sailor-5b177",
+            storageBucket: "garage-sailor-5b177.appspot.com",
+            messagingSenderId: "53970225751",
+            appId: "1:53970225751:web:f495df6b08d1c76e8df112",
+            measurementId: "G-LF18WB35BV"
+            };
+            firebase.initializeApp(config);
+            firebase.analytics();
+            const db = firebase.firestore();
+        </script>
     </body>
 </html>
     

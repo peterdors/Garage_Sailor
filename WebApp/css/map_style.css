@@ -1,4 +1,4 @@
-
+/* top left corner logo */
 .insignia{
   display: block;
   width: 50px;
@@ -6,14 +6,15 @@
   margin-top: 18px;
 }
 
+/* background image */
 body {
   background-image: url("../../graphics/backgrounds/current/landing no sun.png");
   background-size: 1536px 1536px;
   background-repeat: no-repeat;
   background-position: center top;
-  
 }
 
+/* circle link over map */
 .mapwrap{
   width: 650px;
   height: 650px;
@@ -30,56 +31,22 @@ body {
   border-radius: 50%; 
 }
 
-
-/* .mapwrap{
-  position: relative;
-  width: 100%;
-  height: 100%;
-} */
-
-/* .maplink{
-  width: 650px;
-  height: 650px; 
-  color: black;
-  
-   margin-top: 105px; 
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 50%; 
-  z-index: 20; 
-  
-}  */
-
-/* #map:hover{
-  color: rgb(255, 203, 227);
-  color: rgb(255, 203, 227, .5);
-} */
-
-/* Always set the map height explicitly to define the size of the div
- * element that contains the map. */
-#map 
-{
-	/*height: 80%;
-  width: 80%;*/
+/* google map */
+#map {
   position: absolute;
-  /* width: 100%; */
   width: 650px;
   height: 650px;
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%);
-
   margin: 425px 50% 0 50%;
-  /* margin: auto; */
-
   border-radius: 50%;
   z-index: 1;
 }
 
-
+/* loading page */
 #overlay 
 {
   position: fixed;
-  /*display: none;*/
   width: 100%;
   height: 100%;
   top: 0;
@@ -88,11 +55,9 @@ body {
   bottom: 0;
   background-color: rgb(202, 240, 255);
   background-color: rgb(202, 240, 255, .5);
-  /* opacity: .5; */
   z-index: 2;
   cursor: pointer;
 }
-
 #text
 {
   position: absolute;
@@ -101,75 +66,10 @@ body {
   text-align: center;
   font-family: 'Quicksand', sans-serif;
   font-size: xx-large;
-  /* opacity: 1; */
   color: #507fa5;
   width: 100%;
-  /* height: 100%; */
   transform: translate(-50%,-50%);
   -ms-transform: translate(-50%,-50%); 
 }
 
-
-/* #overlay 
-{
-  position: fixed;
-  display: none;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 2;
-  cursor: pointer;
-}
-
-#text
-{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 50px sans-serif;
-  color: white;
-  transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-} */
-
-#sail_link
-{
-  text-align:center;
-  display:block;
-  margin: 1%;
-  margin-bottom: 5%;
-  width: 100%;
-}
-
-#sail-button 
-{
-    background-color: #FFCBE3;
-    border: none;
-    color: #0e3b54;
-    padding: 10px 30px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-family: 'Quicksand', sans-serif;
-    border-style: solid;
-    border-width: 3px;
-    border-color: #507fa5;
-    font-size: x-large;
-    margin: 2px 1px;
-    margin-bottom: 5px;
-    cursor: pointer;
-    border-radius: 15px; 
-}
-
-/* Optional: Makes the sample page fill the window. */
-html, body 
-{
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
 

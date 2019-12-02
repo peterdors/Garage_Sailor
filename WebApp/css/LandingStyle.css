@@ -1,59 +1,56 @@
 
 body {
+    /* background image */
     background-image: url("../graphics/backgrounds/current/landing light.png");
     background-size: 1536px 1536px;
     background-repeat: no-repeat;
     background-position: center top;
 
+    /* general doc settings */
     display: flex;
     flex-direction: column;
 }
 
+/* top left corner logo */
 .insignia{
-    display: block;
     width: 50px;
     margin-left: 10px;
     margin-top: 10px;
 }
 
+/* garage sailor in the middle of page */
 .logo {
-    display: block;
+    margin-top: 225px;
     margin-left: auto;
     margin-right: auto;
+
+    /* makes the logo responsive at on smaller screens */
     max-width: 500px;
     width: 80%;
-    margin-top: 225px;
+    
 }
+
+/* one's trash */
 .heading {
-    display: block;
+    margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
+
+    /* makes the logo responsive at on smaller screens */
     max-width: 600px;
     width: 90%;
-    
-    margin-top: 7%;
-    margin-top: 70px;
-    margin-top: 60px;
 }
 
+/* the wrapper for sell and sail buttons */
 .buttons{
-    margin-top: 5%;
     margin-top: 60px;
-    position: relative;
-    /* top: 25%;  */
     margin-left: auto;
     margin-right: auto;
-    display: flex;
-}
-
-.button {
-    width: 70px;
 }
 
 .sail{
     background-image: url("../graphics/icons/current/sail button (hq).png");
     background-size: 50px 75px;
-    /* background: transparent; */
     width: 50px;
     height: 75px;
     background-repeat: no-repeat;
@@ -66,47 +63,19 @@ body {
 .sell{
     background-image: url("../graphics/icons/current/sell button (hq).png");
     background-size: 53px 70px;
-    /* background: transparent; */
     width: 53px;
     height: 70px;
     background-repeat: no-repeat;
     border: none;
-
     margin-top: 5px;
     background-color:transparent;
     cursor: pointer;
 }
 
 
-/* 
-.tooltip {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-  }
-  
-.button .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    opacity: 0;
-  
-    /* Position the tooltip 
-    position: absolute;
-    z-index: 1;
- }
-  
-.button:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-} */
 
 
-/* colors: 
+/* color palette for reference: 
 
             Lightest blue   #CAF0FF;
             Light blue      #78C4E6;
@@ -114,5 +83,5 @@ body {
             Darkest blue    #0e3b54;
 
             Light pink      #CAF0FF;
-
-            */
+            dark pink       #E891BB;
+*/

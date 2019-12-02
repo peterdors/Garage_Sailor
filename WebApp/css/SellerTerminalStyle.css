@@ -1,5 +1,5 @@
-
 body {
+    /* Background image */
     background-image: url("../graphics/backgrounds/current/landing light.png");
     background-size: 1536px 1536px;
     background-repeat: no-repeat;
@@ -10,6 +10,7 @@ body {
     flex-direction: column;
 }
 
+/* top left corner logo */
 .insignia{
     display: block;
     width: 50px;
@@ -17,6 +18,7 @@ body {
     margin-top: 10px;
 }
 
+/* garage sailor logo  */
 .logo {
     display: block;
     margin-left: auto;
@@ -26,6 +28,7 @@ body {
     margin-top: 225px;
 }
 
+/* sale posted */
 .heading {
     display: block;
     margin-left: auto;
@@ -35,12 +38,12 @@ body {
     margin-top: 60px;
 }
 
+/* home button */
 .home_wrapper{
     margin-top: 60px;
     margin-left: auto;
     margin-right: auto;
 }
-
 .home{
     width: 60px;
     height: 75px;
