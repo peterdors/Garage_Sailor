@@ -63,11 +63,8 @@ async function dates()
     } 
 
     today = yyyy + '-' + mm + '-' + dd;
-    console.log(today); 
 
     await setMinDate(today);
-
-    console.log("exiting");
 }
 
 // Saving Data
@@ -136,6 +133,8 @@ if (form)
 
 if (sale)
 {
+    dates();
+
     sale.addEventListener('submit', async (e) => 
     {
         e.preventDefault();
@@ -157,13 +156,12 @@ if (sale)
         // TODO: Compare the date entered to today's date and if the date 
         // entered is earlier than today's date we should catch this as an error. 
         date = await document.getElementById('date');
+
         date.type = 'date';
         var dateval = date.valueAsDate;
-// =============================================================================
-        // Function from the sailorpage.js file being called here. 
-        await dates();
-// =============================================================================
         var inp = new Date(dateval);
+
+        console.log(inp);
 
         date.type = 'text';
         
@@ -244,6 +242,6 @@ if (sale)
 
         // prevent empty strings for date and address, or no boxes checked
         // check for match date and categories.
-        // location.href = "SailorTerminal.html";
+        location.href = "SailorTerminal.html";
     });
 }
