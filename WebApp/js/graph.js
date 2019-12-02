@@ -1,14 +1,15 @@
+// Garage Sailor
+// COP 4331, Fall 2019
+
+// graph.js
+// ========
+
 // This will hold the class implementation for creating an adjacency matrix 
 // by using the google maps API to build the matrix with a given list of places. 
 
 class Graph
 {
-	// matrix = [];
-	// places = []; 
-	// // Find the distance in miles between two points on the map. 
-	// distanceService;
-
-	// constructor takes in an array of places 
+	// Constructor takes in an array of places. 
 	constructor(places)
 	{
 		this.places = places; 
@@ -30,7 +31,8 @@ class Graph
 			for (var j = i + 1; j < places.length; j++)
 			{
 				// Inputs the distance in miles between the places[i] and 
-				// places[j] points. Puts that in the correspoding matrix cell
+				// places[j] points. Putting that in the correspoding matrix 
+				// cell
 				this.get_distance(places, i, j);
 			}
 		}
@@ -38,7 +40,8 @@ class Graph
 
 	get_distance(places, start, destination)
 	{ 
-		return new Promise((resolve, reject) => this.distanceService.getDistanceMatrix(
+		return new Promise((resolve, reject) => 
+			this.distanceService.getDistanceMatrix(
 		{
 			// Get and place the user input origin and destination from the 
 			// website.
@@ -53,13 +56,12 @@ class Graph
 
 		response => 
 		{
-        	// console.log(response) // actually returns desired response
         	resolve(response.rows[0].elements[0].distance.text);
         	
         	var distance = response.rows[0].elements[0].distance.text;
         	var d = parseFloat(distance);
-        	// var d = parseInt(distance);
 
+        	// Build the matrix using the distance value we got back. 
         	this.matrix[start][destination] = d;
         	this.matrix[destination][start] = d;
       	}));

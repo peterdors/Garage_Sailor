@@ -28,12 +28,46 @@ function get_distance(start, destination)
 
     response => 
     {
-        // console.log(response) // actually returns desired response
+    
         resolve(response.rows[0].elements[0].distance.text);
         
         var distance = response.rows[0].elements[0].distance.text;
         distFromStart = parseFloat(distance);
     }));
+}
+
+
+async function setMinDate(today) 
+{   
+    return new Promise(resolve => {
+        resolve(document.getElementById("date").setAttribute("min", today));
+    });
+}
+
+async function dates()
+{
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; // January is 0!
+    var yyyy = today.getFullYear();
+
+    // For handling when days and/or months numbered 1 through 9 are used. 
+    if (dd < 10)
+    {
+        dd = '0' + dd;
+    } 
+
+    if (mm < 10)
+    {
+        mm = '0' + mm;
+    } 
+
+    today = yyyy + '-' + mm + '-' + dd;
+    console.log(today); 
+
+    await setMinDate(today);
+
+    console.log("exiting");
 }
 
 // Saving Data
@@ -83,9 +117,6 @@ if (form)
             date: dateval,
         }).then(ref => 
         {
-            console.log('Added document with ID: ', ref.id);
-            console.log(form.date.value);
-            console.log(dateval);
         });
 
         form.electronics.checked = false;
@@ -128,28 +159,18 @@ if (sale)
         date = await document.getElementById('date');
         date.type = 'date';
         var dateval = date.valueAsDate;
-
-        var today = new Date();
+// =============================================================================
+        // Function from the sailorpage.js file being called here. 
+        await dates();
+// =============================================================================
         var inp = new Date(dateval);
 
-        console.log(inp);
-        console.log(date.value);
-        console.log(dateval);
-
-        // if (inp < today)
-        // {
-        //     alert("Please input a date greater than or equal to " + today);
-        //     return; 
-        // }
-
-        
         date.type = 'text';
-        console.log("Len elements" + len);
         
         for (var i = 0; i < len; i++)
         {
             element = gsale[i];
-            // console.log(element);
+        
 
             if (element.type == "checkbox" && element.checked === true)
             {   
@@ -157,33 +178,26 @@ if (sale)
                 .then(snapshot => {
                     if (snapshot.empty) 
                     {
-                        console.log("No matching documents");
 
                         return;
                     }
                     snapshot.forEach(doc => 
                     {
-                        console.log(doc.data().address);
                         sales.add(doc.data().address);
-                        // console.log(doc.id, "=>", doc.data().date);
+                    
                     });
                 })
                 .catch(err => 
                 {
-                    // console.log("Error getting documents", err);
+                
                 });
 
                 var arrlen = sales.size;
-
-                // console.log("arrlen before =", arrlen);
-
-                // console.log(sales);
             }
         }
 
         sales = Array.from(sales);
-        // console.log(sales);
-
+    
         // TODO check if empty
         let salesDistances = new Array();
 
@@ -195,7 +209,6 @@ if (sale)
         {
             // TODO get distance
             await get_distance(startAddress, sales[i]);
-            console.log(distFromStart);
             salesDistances.push({address: sales[i], dist: distFromStart});
         }
 
@@ -203,34 +216,26 @@ if (sale)
         {
             let comparison = 0;
 
-            if (a.dist > b.dist) comparison = 1;
-            else if (b.dist > a.dist) comparison = -1;
+            if (a.dist > b.dist) 
+                comparison = 1;
+            else if (b.dist > a.dist) 
+                comparison = -1;
 
             return comparison;
         }
         
         salesDistances.sort(compare);
 
-        // console.log(salesDistances);
-
         resSales[0] = startAddress;
 
         var min = Math.min(8, salesDistances.length);
-        
-        // console.log(min);
-        // console.log(resSales);
 
         for (i = 1; i < min + 1; i++)
         {
             resSales[i] = salesDistances[i-1].address;
         }
 
-        // console.log(resSales);
-
         resSales[i] = startAddress;
-
-        // Array for tsp
-        console.log(resSales);
 
         // This method call allows for us to transfer the resSales values to the 
         // javascript file used in TSP, BUT WE HAVE TO TURN OFF THE OPTION IN 
@@ -239,9 +244,6 @@ if (sale)
 
         // prevent empty strings for date and address, or no boxes checked
         // check for match date and categories.
-        location.href = "SailorTerminal.html";
+        // location.href = "SailorTerminal.html";
     });
 }
-
-
-

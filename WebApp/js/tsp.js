@@ -1,6 +1,12 @@
-// This will inherit from the Graphs class in the graph.js file and calculate 
-// the TSP by using the adjacency matrix constructed in the Graphs class. 
+// Garage Sailor
+// COP 4331, Fall 2019
 
+// tsp.js
+// ======
+
+// The TSP class will inherit from the Graphs class in the graph.js file and 
+// calculate the TSP by using the adjacency matrix constructed in the Graphs 
+// class. 
 class TSP extends Graph
 {
 	constructor(places)
@@ -33,7 +39,8 @@ class TSP extends Graph
 		await this.tsp_helper(start, visited, 1, 0, traversal, 0);
 	}
 
-	async tsp_helper(node, visited, numNodesVisited, routeLength, traversal, level)
+	async tsp_helper(node, visited, numNodesVisited, routeLength, traversal, 
+					level)
 	{
 		var totalRouteLength = this.minRouteLength; 
 
@@ -93,5 +100,4 @@ class TSP extends Graph
 			}
 		}
 	}
-
 }

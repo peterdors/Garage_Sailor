@@ -30,6 +30,7 @@
         <div class="bigbox"> 
 
             <!-- box for just the catagories -->
+        <div class="bigbox">
             <div class="catbox">
                 <form id="search-sale-form">
                     <label class="categories" for="row">Categories:</label>
@@ -65,7 +66,7 @@
                     <!-- Address and Date fields -->
                     <input type="text" id='address' class="Address" placeholder="Address" name="address" onfocus="(this.value='')" onfocusout="(this.placeholder='Address')" required>
 
-                    <input type="text" id="date" class="Date" placeholder="Date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='Date')" required>
+                    <input type="text" id="date" class="Date" placeholder="Date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='Date')" onload="dates()">
                     
                     <!-- sail button -->
                     <div class='button-holder' id='button-holder'>
@@ -74,13 +75,15 @@
                 </form>
         </div>
 
-        <script type="text/javascript" src="js/searchbox.js"></script>
-        <script src= "js/app.js"></script>
 
+        <script type="text/javascript" src="js/searchbox.js"></script>
+        <script type="text/javascript" src = "js/sailorpage.js"></script>
+        <script type="text/javascript" src= "js/app.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKqGORDa-hUOfijNp_dkE3u8gJpdXFe2o
             &callback=initSearchBox&libraries=places"
             async defer>
         </script>
+<<<<<<< Updated upstream
 
         <!-- script for blocking out past dates -->
         <script>
@@ -98,23 +101,18 @@
                 today = yyyy+'-'+mm+'-'+dd;
                 document.getElementById("date").setAttribute("min", today);
         </script>
+=======
+>>>>>>> Stashed changes
 
         <!-- database configuration -->
         <script>
-            var config = {
-            apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
-            authDomain: "garage-sailor-5b177.firebaseapp.com",
-            databaseURL: "https://garage-sailor-5b177.firebaseio.com",
-            projectId: "garage-sailor-5b177",
-            storageBucket: "garage-sailor-5b177.appspot.com",
-            messagingSenderId: "53970225751",
-            appId: "1:53970225751:web:f495df6b08d1c76e8df112",
-            measurementId: "G-LF18WB35BV"
-            };
-            firebase.initializeApp(config);
-            firebase.analytics();
-            const db = firebase.firestore();
         </script>
+<<<<<<< Updated upstream
+=======
+
+        <script>
+        </script>
+>>>>>>> Stashed changes
     </body>
 </html>
     
