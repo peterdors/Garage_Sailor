@@ -65,7 +65,7 @@
                     <!-- Address and Date fields -->
                     <input type="text" id='address' class="Address" placeholder="Address" name="address" onfocus="(this.value='')" onfocusout="(this.placeholder='Address')" required>
 
-                    <input type="text" id="date" class="Date" placeholder="Date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='Date')">
+                    <input type="text" id="date" class="Date" placeholder="Date" onfocus="(this.type='date')" onfocusout="(this.type='text', this.placeholder='Date')" required>
                     
                     <!-- sail button -->
                     <div class='button-holder' id='button-holder'>
@@ -76,12 +76,15 @@
 
 
         <script type="text/javascript" src="js/searchbox.js"></script>
+        <script type="text/javascript" src="js/dates.js"></script>
+        <script type="text/javascript" src="js/database.js"></script>
         <script type="text/javascript" src = "js/sailorpage.js"></script>
-        <script type="text/javascript" src= "js/app.js"></script>
+
         <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_GOES_HERE
             &callback=initSearchBox&libraries=places"
             async defer>
         </script>
+
     </body>
 </html>
     
