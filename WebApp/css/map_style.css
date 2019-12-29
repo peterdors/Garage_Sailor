@@ -31,6 +31,16 @@ body {
   border-radius: 50%; 
 }
 
+#map_screen_protector
+{
+  position: absolute;
+  height: 750px;
+  margin-top: 0%;
+  width: 100%;
+  background-color: transparent;
+  z-index: 10;
+}
+
 /* google map */
 #map {
   position: absolute;

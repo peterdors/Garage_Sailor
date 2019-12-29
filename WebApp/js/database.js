@@ -1,6 +1,6 @@
 var config = 
 {
-	apiKey: "AIzaSyDG6CosTJ21RN1dNak2ZJr58eiZkLBQvaU",
+	apiKey: "YOUR_API_KEY_GOES_HERE",
 	authDomain: "garage-sailor-5b177.firebaseapp.com",
 	databaseURL: "https://garage-sailor-5b177.firebaseio.com",
 	projectId: "garage-sailor-5b177",
