@@ -93,10 +93,12 @@ form.addEventListener('submit', async (e) =>
         if (element.type == "checkbox" && element.checked === true)
         {   
             await db.collection('Sellers')
+
             // Checks for duplicates.
             .where(element.value.toLowerCase(), '==', true)
             .where('date', '==', dateval).get()
-            .then(snapshot => {
+            .then(snapshot => 
+            {
                 if (snapshot.empty) 
                 {
                     return;
